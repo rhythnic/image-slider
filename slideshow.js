@@ -15,7 +15,7 @@ if ( typeof Object.create !== 'function' ) {
             self.$elem = $( elem );
             self.$ul = self.$elem.css('overflow', 'hidden').children('ul');
             self.$nav = self.$elem.find( 'div.slideshow-nav' );
-            self.$play = self.$nav.children('i.ss-play');
+            self.$play = self.$nav.children('i.play');
             
             self.imgs = self.$ul.find('img');
             self.imgWidth = self.imgs[0].width;
@@ -42,7 +42,7 @@ if ( typeof Object.create !== 'function' ) {
                 self.$nav.fadeOut(200);
             });
             
-            self.$nav.on('click', 'i.ss-skip', function() {
+            self.$nav.on('click', 'i.skip', function() {
                 self.setCurrent( $(this).data('dir') );
                 self.transition();
             });

@@ -6,7 +6,7 @@ Please see example code for instructions on how to use plugin. -->
 <head>
     <meta charset="UTF-8">
     <title>Image Slideshow</title>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="slideshow.css">
 </head>
 <body>
@@ -24,15 +24,20 @@ Please see example code for instructions on how to use plugin. -->
     </ul>
     <div class="slideshow-nav">
         <i data-dir="prev" class="ss-skip fa fa-chevron-left"></i>
-        <i class="ss-play fa fa-play"></i>
-        <i data-dir="next" class="ss-skip fa fa-chevron-right"></i>
+        <i class="play fa fa-play"></i>
+        <i data-dir="next" class="skip fa fa-chevron-right"></i>
     </div>
 </div>
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="slideshow.js"></script>
-<script> $('div.slideshow').slideshow( { play: true } ); </script>
+
+<!--  $(window).load ensures that the images have loaded before the plugin is called -->
+<script> $(window).load(function() {
+    $('div.slideshow').slideshow( { play: true } );
+});
+</script>
 
 <!--
 Optionally, you can override default settings, to enable autoplay, set the icon font classes, etc.
