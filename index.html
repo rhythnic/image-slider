@@ -1,0 +1,58 @@
+<!-- This image slideshow plugin is designed to work with font icons.
+Please see example code for instructions on how to use plugin. -->
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Image Slideshow</title>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="slideshow.css">
+</head>
+<body>
+
+<div class="slideshow">
+    <ul>
+        <li><img src="img/colored-orb-lights.jpg" alt="Colored orb lights">
+            <p>Colored orb lights, oh aren't they so great and so pretty. I want to look at them all the time.</p>
+        </li>
+        <li><img src="img/fall-grass.jpg" alt="Fall grass"></li>
+        <li><img src="img/model-train-station.jpg" alt="Model train station"></li>
+        <li><img src="img/pool-art.jpg" alt="Architecture art">
+            <p>Architecture art - 3 people in a pool</p>
+        </li>
+    </ul>
+    <div class="slideshow-nav">
+        <i data-dir="prev" class="ss-skip fa fa-chevron-left"></i>
+        <i class="ss-play fa fa-play"></i>
+        <i data-dir="next" class="ss-skip fa fa-chevron-right"></i>
+    </div>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="slideshow.js"></script>
+<script> $('div.slideshow').slideshow( { play: true } ); </script>
+
+<!--
+Optionally, you can override default settings, to enable autoplay, set the icon font classes, etc.
+The object passed in the method call below shows you each option and its
+defalut value.  You can choose to include any combination of the available options in the object that you
+pass to the function, and override the values with the values that you enter.
+
+$('div.slideshow').slideshow({
+    play: true,
+    timer: 5000,
+    playClass: 'fa-play',
+    pauseClass: 'fa-pause'
+});
+
+play -> slideshow autoplays on page load
+timer -> number of milliseconds between photos on autoplay
+playClass -> for the icon font that you use for your site, this is the class to display a play icon
+pauseClass -> icon font class to display a pause icon
+*This plugin uses the class names for Font Awesome by default to display play and pause icons.
+-->
+
+</body>
+</html>

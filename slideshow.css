@@ -1,0 +1,53 @@
+.slideshow {
+    width: 600px;
+    height: 400px;
+    overflow: scroll;
+    position: relative;
+    margin: auto;
+}
+
+.slideshow-nav {
+    display: none;
+    margin: 1em;
+    width: 20%;
+    position: absolute;
+    background: rgba(20, 20, 20, 0.7);
+    border-radius: 1.5em;
+    border: 2px solid #fff;
+    text-align: center;
+}
+
+.slideshow-nav i {
+    cursor: pointer;
+    margin-left: 0.3em;
+    padding: 0.3em;
+    color: #fff;
+    font-size: 1.3em;
+}
+
+.slideshow ul {
+    list-style: none;
+    width: 10000px;
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow li {
+    float: left;
+    position: relative;
+}
+
+.slideshow p {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    padding: 15px 25px;
+    margin: 0;
+    color: #fff;
+    background: rgba(20, 20, 20, 0.7);
+    line-height: 1.3em;
+    letter-spacing: 0.09em;
+}
