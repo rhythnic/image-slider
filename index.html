@@ -1,17 +1,52 @@
-<!-- This image slideshow plugin is designed to work with font icons.
-Please see example code for instructions on how to use plugin. -->
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Image Slideshow</title>
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="slideshow.css">
 </head>
 <body>
+    <header>
+        <h1>Rhythnic Image Slider jQuery Plugin</h1>
+        <a href=""></a>
+    </header>
+    <article>
+        <h2>Rhythnic Image Slider jQuery Plugin</h2>
+        <section>
+            <h3>Image Slider demonstrations</h3>
+            <section>
+                <h4>Image Slider with Javascript Enabled</h4>
+            </section>
+            <section>
+                <h4>Image Slider with Javascript Disabled</h4>
+            </section>
+        </section>
+        <section>
+            <h3>How to Use the Image Slider Plugin</h3>
+            <section>
+                <h4>The HTML</h4>
+            </section>
+            <section>
+                <h4>The CSS</h4>
+            </section>
+            <section>
+                <h4>The Javascript</h4>
+            </section>
+            <section>
+                <h4>Options</h4>
+            </section>
+        </section>
+        <seciton>
+            <h3>Rhythnic image slider is open source</h3>
+        </seciton>
+        <footer>
+        </footer>
+    </article>
+</body>
+</html>
 
-<div class="slideshow">
+<!-- <div class="slideshow">
     <ul>
         <li><img src="//rhythnic.com/static/img/slideshow/colored-orb-lights.jpg" alt="Colored orb lights">
             <p>Colored orb lights, oh aren't they so great and so pretty. I want to look at them all the time.</p>
@@ -33,13 +68,12 @@ Please see example code for instructions on how to use plugin. -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="slideshow.js"></script>
 
-<!--  $(window).load ensures that the images have loaded before the plugin is called -->
+$(window).load ensures that the images have loaded before the plugin is called
 <script> $(window).load(function() {
     $('div.slideshow').slideshow( { play: true } );
 });
 </script>
 
-<!--
 Optionally, you can override default settings, to enable autoplay, set the icon font classes, etc.
 The object passed in the method call below shows you each option and its
 defalut value.  You can choose to include any combination of the available options in the object that you
@@ -56,8 +90,4 @@ play -> slideshow autoplays on page load
 timer -> number of milliseconds between photos on autoplay
 playClass -> for the icon font that you use for your site, this is the class to display a play icon
 pauseClass -> icon font class to display a pause icon
-*This plugin uses the class names for Font Awesome by default to display play and pause icons.
--->
-
-</body>
-</html>
+*This plugin uses the class names for Font Awesome by default to display play and pause icons. -->
