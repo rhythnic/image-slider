@@ -1,15 +1,15 @@
 .slideshow {
-    width: 600px;
-    height: 400px;
-    overflow: scroll;
+    width: 600px; /* width of each image */
+    height: 400px; /* height of each image */
     position: relative;
-    margin: auto;
+    overflow: scroll;  /* allows for users to scroll images in the absence of javascript */
+    font-size: 100%;  /* adjust to control the sizing of the elements in slideshow, which are sized using em */
 }
 
 .slideshow-nav {
     display: none;
     margin: 1em;
-    width: 20%;
+    width: 8em;
     position: absolute;
     background: rgba(20, 20, 20, 0.7);
     border-radius: 1.5em;
@@ -19,8 +19,8 @@
 
 .slideshow-nav i {
     cursor: pointer;
-    margin-left: 0.3em;
-    padding: 0.3em;
+    width: 1em;
+    padding: 0.3em 0.4em;
     color: #fff;
     font-size: 1.3em;
 }
@@ -44,7 +44,7 @@
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
-    padding: 15px 25px;
+    padding: 1em 1.5em; 
     margin: 0;
     color: #fff;
     background: rgba(20, 20, 20, 0.7);
