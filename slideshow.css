@@ -1,10 +1,9 @@
 .slideshow {
-    width: 600px; /* width of each image */
-    height: 400px; /* height of each image */
     position: relative;
     overflow: scroll;  /* allows for users to scroll images in the absence of javascript */
-    font-size: 100%;  /* adjust to control the sizing of the elements in slideshow, which are sized using em */
 }
+
+.slideshow img { height: auto; }
 
 .slideshow-nav {
     display: none;
@@ -43,7 +42,7 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     position: absolute;
-    bottom: 0;
+    bottom: 0.25em;
     padding: 1em 1.5em; 
     margin: 0;
     color: #fff;
