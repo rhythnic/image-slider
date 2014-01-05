@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Rhythnic Image Slideshow</title>
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -200,7 +201,7 @@
                     <dt>Link to jQuery</dt>
                     <dd>
                         <ol>
-                            <li><code>&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;</code></li>
+                            <li><code>&lt;script src = &quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;</code></li>
                             <li><code>&lt;script&gt;window.jQuery || document.write('&lt;script src=&quot;//codeorigin.jquery.com/jquery-1.10.2.min.js&quot;&gt;&lt;\/script&gt;')&lt;/script&gt;</code></li>
                         </ol>
                     </dd>
@@ -295,6 +296,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery ||document.write('<script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"><\/script>')</script>
     <script src="slideshow.js"></script>
-    <script> $(window).load(function() { $('div.slideshow').slideshow( { play: true } ); }); </script>
+    <script> $(window).load(function() { $('div.slideshow').slideshow( { play: false } ); }); </script>
 </body>
 </html>
