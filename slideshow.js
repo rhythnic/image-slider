@@ -13,12 +13,13 @@ if ( typeof Object.create !== 'function' ) {
             var self = this;
             
             self.$elem = $( elem );
+            self.elemWidth = self.$elem.css("width");
             self.$ul = self.$elem.css('overflow', 'hidden').children('ul');
             self.$nav = self.$elem.find( 'div.slideshow-nav' );
             self.$play = self.$nav.children('i.play');
             
-            self.imgs = self.$ul.find('img');
-            self.imgWidth = self.imgs[0].width;
+            self.imgs = self.$ul.find('img').css("width", self.elemWidth);
+            self.imgWidth = parseInt(self.elemWidth.substr(0, self.elemWidth.length-2));
             self.imgsLen = self.imgs.length;
             
             self.current = 0;
