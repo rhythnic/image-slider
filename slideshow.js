@@ -86,7 +86,7 @@ if ( typeof Object.create !== 'function' ) {
         transition: function() {
             this.$ul.animate({
                 'margin-left': -( this.current * this.imgWidth )
-            });
+            }, 100);
         }
     };
     
