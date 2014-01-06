@@ -1,18 +1,33 @@
+/* color:  00AA72  rgb(0, 170, 114) */
+
 @import url(normalize.css);
 
-html { font-size: 80%; }
+html { font-size: 62.5%; }
 
-body { padding: 1rem;}
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Lucida, Helvetica, Arial;
+}
 
 h1 { font-size: 2.2rem; }
 h2 { font-size: 2rem; }
-h3 { font-size: 1.8rem; }
+h3 { font-size: 1.8rem; color: #006f4a; }
 h4 { font-size: 1.6rem; }
 h5 { font-size: 1.4rem; }
-p, a, li, dt, dd { font-size: 1.6rem;}
+
+p, a, li, dt, dd {
+    font-size: 1.6rem;
+    line-height: 1.5em;
+}
+
+p { color: #424242; }
+
+a:link, a:visited { text-decoration: none; }
+a:link { color: #53DF00; }
+a:visited { color: #ffa273; }
+a:hover, a:focus, a: active { text-decoration: underline; }
 
 code {
-    font-size: 1.4rem;
+    font: 1.4rem "Courier New", Courier, monospace;
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
@@ -20,7 +35,153 @@ code {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
+body > h1 { display: none; }
+
+.logoFont { font-family: Quicksand; }
+
+.demonstration h3 { display: none;}
+
+article header { padding: 2rem; }
+
+article header, .demonstration {
+    background: #00aa72;
+}
+
+article footer {
+    background: #689CD3;
+}
+
+article footer p {
+    color: #000;
+}
+
+dt { font-weight: bold; }
+
+.codelist {
+    border: 1px solid #aaa;
+}
+
+.codelist dt {
+    background: #ddd;
+    padding: 0.7rem;
+    border-bottom: 0.2rem solid #fff;
+}
+
+.codelist li {
+    background: #fff;
+}
+
+.codelist code {
+    background: #eaeaea;
+    display: block;
+    border-bottom: 0.2rem solid #fff;
+    border-right: 0.2rem solid #fff;
+    padding: 0.2rem 1rem;
+}
+
+/*
+*************************
+* mobile
+*************************
+*/
+
+html { font-size: 55%; }
+
+dd { margin-left: 2rem; }
+
 .slideshow {
     width: 100%;
-    font-size: 100%;  /* adjust to control the sizing of the elements in slideshow, which are sized using em */ 
+    font-size: 140%;  /* adjust to control the sizing of the elements in slideshow, which are sized using em */
 }
+
+.slideshow img {
+    width: 40rem;
+}
+
+.demonstration {
+    padding: 2rem 0 0;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 1rem 3rem;
+    font-size: 4rem;
+    font-weight: normal;
+    color: #fff;
+}
+
+h2 .logoFont {
+    font-weight: bold;
+    display: block;
+    padding-top: 3rem;
+    margin: 0 0 3rem;
+    font-size: 7rem;
+    color: #fff;
+    text-shadow: 0.3rem 0.3rem #ff5600;
+}
+
+h3 {
+    text-align: center;
+    border-bottom: 1px solid #888;
+}
+
+h4 {
+    background: rgba(0, 170, 114, 0.2);
+    margin: 1rem;
+    padding: 1rem;
+}
+
+header a {
+    display: block;
+    width: 19rem;
+    margin: 0 auto 5rem;
+    border: 0.2rem solid #d8d8d8;
+    font-size: 2.5rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    background: rgba(255,255,255, 0.1);
+}
+
+section {
+    padding: 0 0.5rem;
+    margin-bottom: 4rem;
+}
+
+ol {
+    padding-left: 1rem;
+}
+
+article footer {
+     padding: 1rem 0.5rem;
+}
+
+article footer p:last-child {
+    text-align: center;
+}
+
+/*
+*************************
+* media queries
+*************************
+*/
+
+@media (min-width: 1120px) {
+  .container {
+    width: 1120px;
+    margin: 0 auto;
+  }
+    
+  .slideshow {
+        width: 600px;
+        margin: 0 auto;
+        border: 1rem solid #fafafa;
+        border-radius: 0.5rem;
+        font-size: 160%;
+    }
+    
+    .demonstration {
+        padding-bottom: 2rem;
+    }
+}
+
