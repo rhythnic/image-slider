@@ -6,22 +6,23 @@
     <title>Rhythnic Image Slideshow</title>
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <link href="slideshow.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Rhythnic Image Slideshow jQuery Plugin</h1>
-        <a href="https://bitbucket.org/rhythnic/image-slideshow/downloads">Download</a>
-    </header>
+    <h1>Rhythnic Image Slideshow jQuery Plugin</h1>
     <article>
-        <h2>Rhythnic Image Slideshow jQuery Plugin</h2>
-        <section>
+        <header><div class="container">
+            <h2><span class="logoFont">Rhythnic</span>Image Slideshow jQuery Plugin</h2>
+            <a href="https://bitbucket.org/rhythnic/image-slideshow/downloads"><i class="fa fa-download"></i> Download</a>
+        </div></header>
+        <section class="demonstration"><div class="container">
             <h3>Image Slideshow demonstration</h3>
             <div class="slideshow">
                 <ul>
                     <li><img src="/img/colored-orb-lights.jpg" alt="Colored orb lights">
-                    <p>Colored orb lights, oh aren't they so great and so pretty. I want to look at them all the time.</p>
+                    <p>Colored orb lights.  Aren't they so pretty?</p>
                     </li>
                     <li><img src="/img/fall-grass.jpg" alt="Fall grass"></li>
                     <li><img src="/img/model-train-station.jpg" alt="Model train station"></li>
@@ -35,8 +36,8 @@
                     <i data-dir="next" class="skip fa fa-chevron-right"></i>
                 </div>
             </div>
-        </section>
-        <section>
+        </div></section>
+        <section><div class="container">
             <h3>How to Use the Image Slideshow Plugin</h3>
             <p>Putting the Rhythnic Image Slideshow on your page is a combination of HTML, CSS, and a little bit of javascript.
                Below I've broken it down into those sections so that you know exactly what to do to put the slideshow on your page.
@@ -62,7 +63,7 @@
                 <p>The slider works by manipulating a list of images on your site, so a good place to start is to make the list of images.
                    Include the list inside of a div with a class of slideshow and place that div on your page whereever you want the slideshow
                    to be.  Any number of photos is fine.</p>
-                <dl>
+                <dl class="codelist">
                     <dt>A list of images inside of a div with a class of slideshow</dt>
                     <dd>
                         <ol>
@@ -78,7 +79,7 @@
                     </dd>
                 </dl>
                 <p>If you want captions, just include a caption inside of a paragraph tag inside of the list element.</p>
-                <dl>
+                <dl class="codelist">
                     <dt>An image with a caption</dt>
                     <dd>
                         <ol>
@@ -92,7 +93,7 @@
                 <p>Copy this div for the slideshow navigation and paste it below the unordered list of images, but still inside
                    of the div with a class of slideshow.
                 </p>
-                <dl>  
+                <dl class="codelist">  
                     <dt>Slideshow navigation div</dt>
                     <dd>
                         <ol>
@@ -106,11 +107,11 @@
                 </dl>
                 <p>The Rhythnic Image Slideshow uses <a href="//fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
                    a popular brand of font icons.  Any class in the slideshow navigation div that starts with &quot;fa&quot;
-                   is a Font Awesome class, which results in the icon displayed.  The other class names and the &quot;data-dir&quot;
+                   is a Font Awesome class, which results in the icon being displayed.  The other class names and the &quot;data-dir&quot;
                    assist in the functioning of the plugin.  In order for the font icons to appear, you need to include a link
                    to the Font Awesome css in the head section of your HTML.
                 </p>
-                <dl>
+                <dl class="codelist">
                     <dt>Link to Font Awesome in the head section</dt>
                     <dd>
                         <ol>
@@ -122,7 +123,7 @@
                    to match whatever you decide to use.  You'll also need to specify the new class names in the options object
                    when you create the jQuery object.  This is explained better in the options section below.</p>
                 <p>The final, complete slideshow div should look something like this.</p>
-                <dl>
+                <dl class="codelist">
                     <dt>The complete slideshow div</dt>
                     <dd>
                         <ol>
@@ -145,19 +146,27 @@
             </section>
             <section>
                 <h4>The CSS</h4>
-                <p>The slideshow.css file won't need to be modified for the most part.  Only modify the first rule,
-                   the &quot;.slideshow&quot; selector, in order to specify the size of the images and to position the
-                   slideshow div on your page accordingly.</p>
-                <dl>
-                    <dt>.slideshow selector in the slideshow.css file</dt>
+                <p>Either copy and paste all of the css into your own css code, or link to the slideshow.css file in the head.</p>
+                <dl class="codelist">
+                    <dt>Link to slideshow.css</dt>
+                    <dd>
+                        <ol>
+                            <li><code>&lt;link href=&quot;/css/slideshow.css&quot; rel=&quot;stylesheet&quot;&gt;</code></li>
+                        </ol>
+                    </dd>
+                </dl>
+                <p>The slideshow.css file won't need to be modified, but you can if you want to.  Include a css selector in your
+                   main css file for the slideshow.  Use it to manpulate the size and positioning of the slideshow container.
+                   Each image will automatically fit the width of the container. For the best presentation, please make all of
+                   the images files the same width and height.  If your using images with different sizes, consider specifying
+                   the height of the .slideshow container so that it stays consistent.  </p>
+                <dl class="codelist">
+                    <dt>.slideshow selector in your main css file</dt>
                     <dd>
                         <ol>
                             <li><code>.slideshow {</code></li>
-                            <li><code>width: 600px; /* width of each image */</code></li>
-                            <li><code>height: 400px; /* height of each image */</code></li>
-                            <li><code>position: relative;</code></li>
-                            <li><code>overflow: scroll;  /* allows for users to scroll images in the absence of javascript */</code></li>
-                            <li><code>font-size: 100%;  /* adjust to control the sizing of the elements in slideshow, which are sized using em */</code></li>
+                            <li><code>width: 600px; /* width of container */</code></li>
+                            <li><code>font-size: 100%;  /* adjust to control the sizing of the icons and text in slideshow*/</code></li>
                             <li><code>}</code></li>
                         </ol>
                     </dd>
@@ -166,26 +175,18 @@
                    and the captions, are sized using ems, so you can increase or decrease their size with font-size in the .slideshow
                    selector.
                 </p>
-                <p>All of the slideshow images should be the same size.  If you want to force images of differing sizes into the plugin,
-                   please include a new css rule to do this.
+                <p>As I mentioned earlier, all the images take the width of the container.  In the absence of javascript, the slideshow
+                   is a horizontal scrolling list of images.  In this instance, the images don't take the width of the container.  They
+                   are just their natural size.  If you'd like to alter their size in the event that there is no javascript, please
+                   add a css rule.
                 </p>
-                <dl>
+                <dl class="codelist">
                     <dt>Force image size</dt>
                     <dd>
                         <ol>
                             <li><code>.slideshow img {</code></li>
                             <li><code>width: 600px; /* width of each image */</code></li>
-                            <li><code>height: 400px; /* height of each image */</code></li>
                             <li><code>}</code></li>
-                        </ol>
-                    </dd>
-                </dl>
-                <p>Either copy and paste all of the css into your own css code, or link to the slideshow.css file in the head.</p>
-                <dl>
-                    <dt>Link to slideshow.css</dt>
-                    <dd>
-                        <ol>
-                            <li><code>&lt;link href=&quot;/css/slideshow.css&quot; rel=&quot;stylesheet&quot;&gt;</code></li>
                         </ol>
                     </dd>
                 </dl>
@@ -197,7 +198,7 @@
                    fails it will attempt to get it from jQuery.  The best place to include scripts and links to scripts is
                    at the bottom of the body container.
                 </p>
-                <dl>
+                <dl class="codelist">
                     <dt>Link to jQuery</dt>
                     <dd>
                         <ol>
@@ -207,7 +208,7 @@
                     </dd>
                 </dl>
                 <p>After your links to download jQuery, add a line to include the slideshow.min.js script.</p>
-                <dl>
+                <dl class="codelist">
                     <dt>Link to slideshow.min.js</dt>
                     <dd>
                         <ol>
@@ -218,7 +219,7 @@
                 <p>The following code will create the slideshow for the div with a class of slideshow.  Be sure to put this
                    after your lines to download jQuery and slideshow.min.js.  The code is placed inside of $window.load() to ensure that all the
                    images have downloaded before the slideshow is created.</p>
-                <dl>
+                <dl class="codelist">
                     <dt>Create the jQuery object for slideshow</dt>
                     <dd>
                         <ol>
@@ -239,7 +240,7 @@
                    replace 5000 with however many milliseconds you would like to be in between each picture.  In regard to the
                    options object, you can specify any options in any order, including or omitting any at will, as long as you
                    use the correct key names, such as play and timer.</p>
-                <dl>
+                <dl class="codelist">
                     <dt>Create the jQuery object for slideshow with options set</dt>
                     <dd>
                         <ol>
@@ -253,7 +254,7 @@
                 </dl>
                 <p>If you have decided to use another font icon system, please specify the new play and pause class names in the
                    options object.</p>
-                <dl>
+                <dl class="codelist">
                     <dt>Specifying class names for play and pause icons</dt>
                     <dd>
                         <ol>
@@ -266,8 +267,8 @@
                     </dd>
                 </dl>
             </section>
-        </section>
-        <section>
+        </div></section>
+        <section><div class="container">
             <h3>Rhythnic Image Slideshow is Open Source</h3>
             <p>The bulk of the code for this plugin is from the Tuts Premium course,
                 <a href="//tutsplus.com/course/30-days-to-learn-jquery/">30 Days to Learn jQuery</a>.
@@ -280,17 +281,16 @@
                 but anyone is able to fork the git project and continue development.  There are many image slideshow plugins around,
                 but I chose to create one more for the purpose of understanding the process of making a plugin.
             </p>
-        </section>
-        <footer>
+        </div></section>
+        <footer><div class="container">
             <p>The Rhythnic Image Slideshow jQuery Plugin is release under the open source software license.  Anyone
                may download it for free, change it at will, and use it for commercial purposes.</p>
-            <p><span>Rhythnic</span>
-            <script>
+            <p><script>
                 var username = "nick", hostname = "rhythnic.com", linktext = username + "@" + hostname;
-                document.write(linktext);
+                document.write("<span class='logoFont'>" + linktext + "</span>");
             </script>
             </p>
-        </footer>
+        </div></footer>
     </article>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
