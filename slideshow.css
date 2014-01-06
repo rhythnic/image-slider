@@ -3,7 +3,7 @@
     overflow: scroll;  /* allows for users to scroll images in the absence of javascript */
 }
 
-.slideshow img { height: auto; }
+.slideshow img { height: auto; vertical-align: top; }
 
 .slideshow-nav {
     display: none;
@@ -37,16 +37,24 @@
 }
 
 .slideshow p {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    box-sizing: border-box;
     position: absolute;
-    bottom: 0.25em;
+    bottom: 0;
     padding: 1em 1.5em; 
     margin: 0;
     color: #fff;
     background: rgba(20, 20, 20, 0.7);
     line-height: 1.3em;
     letter-spacing: 0.09em;
+}
+
+/*
+*************************
+* mobile
+*************************
+*/
+
+@media (max-width: 1000px) {
+  .slideshow-nav {
+    display: block;
+  }
 }
