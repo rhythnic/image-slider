@@ -13,30 +13,31 @@
 <body>
     <h1>Rhythnic Image Slideshow jQuery Plugin</h1>
     <article>
-        <header><div class="container">
-            <h2><span class="logoFont">Rhythnic</span>Image Slideshow jQuery Plugin</h2>
-            <a href="https://bitbucket.org/rhythnic/image-slideshow/downloads"><i class="fa fa-download"></i> Download</a>
-        </div></header>
-        <section class="demonstration"><div class="container">
-            <h3>Image Slideshow demonstration</h3>
-            <div class="slideshow">
-                <ul>
-                    <li><img src="/img/colored-orb-lights.jpg" alt="Colored orb lights">
-                    <p>Colored orb lights.  Aren't they so pretty?</p>
-                    </li>
-                    <li><img src="/img/fall-grass.jpg" alt="Fall grass"></li>
-                    <li><img src="/img/model-train-station.jpg" alt="Model train station"></li>
-                    <li><img src="/img/pool-art.jpg" alt="Architecture art">
-                        <p>Architecture art - 3 people in a pool</p>
-                    </li>
-                </ul>
-                <div class="slideshow-nav">
-                    <i data-dir="prev" class="skip fa fa-chevron-left"></i>
-                    <i class="play fa fa-play"></i>
-                    <i data-dir="next" class="skip fa fa-chevron-right"></i>
+        <div class="title-and-demo"><div class="container">
+            <header>
+                <h2><span class="logoFont">Rhythnic</span> Image Slideshow jQuery Plugin</h2>
+                <a href="https://bitbucket.org/rhythnic/image-slideshow/downloads"><i class="fa fa-download"></i> Download</a>
+            </header><section class="demo">
+                <h3>Image Slideshow demonstration</h3>
+                <div class="slideshow">
+                    <ul>
+                        <li><img src="/img/colored-orb-lights.jpg" alt="Colored orb lights">
+                        <p>Colored orb lights.  Aren't they so pretty?</p>
+                        </li>
+                        <li><img src="/img/fall-grass.jpg" alt="Fall grass"></li>
+                        <li><img src="/img/model-train-station.jpg" alt="Model train station"></li>
+                        <li><img src="/img/pool-art.jpg" alt="Architecture art">
+                            <p>Architecture art - 3 people in a pool</p>
+                        </li>
+                    </ul>
+                    <div class="slideshow-nav">
+                        <i data-dir="prev" class="skip fa fa-chevron-left"></i>
+                        <i class="play fa fa-play"></i>
+                        <i data-dir="next" class="skip fa fa-chevron-right"></i>
+                    </div>
                 </div>
-            </div>
-        </div></section>
+            </section>
+        </div></div>
         <section><div class="container">
             <h3>How to Use the Image Slideshow Plugin</h3>
             <p>Putting the Rhythnic Image Slideshow on your page is a combination of HTML, CSS, and a little bit of javascript.
@@ -60,7 +61,7 @@
             </section>
             <section>
                 <h4>The HTML</h4>
-                <p>The slider works by manipulating a list of images on your site, so a good place to start is to make the list of images.
+                <p class="codedesc">The slider works by manipulating a list of images on your site, so a good place to start is to make the list of images.
                    Include the list inside of a div with a class of slideshow and place that div on your page whereever you want the slideshow
                    to be.  Any number of photos is fine.</p>
                 <dl class="codelist">
@@ -78,7 +79,7 @@
                         </ol>
                     </dd>
                 </dl>
-                <p>If you want captions, just include a caption inside of a paragraph tag inside of the list element.</p>
+                <p class="codedesc">If you want captions, just include a caption inside of a paragraph tag inside of the list element.</p>
                 <dl class="codelist">
                     <dt>An image with a caption</dt>
                     <dd>
@@ -90,7 +91,7 @@
                         </ol>
                     </dd>
                 </dl>
-                <p>Copy this div for the slideshow navigation and paste it below the unordered list of images, but still inside
+                <p class="codedesc">Copy this div for the slideshow navigation and paste it below the unordered list of images, but still inside
                    of the div with a class of slideshow.
                 </p>
                 <dl class="codelist">  
@@ -108,9 +109,10 @@
                 <p>The Rhythnic Image Slideshow uses <a href="//fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
                    a popular brand of font icons.  Any class in the slideshow navigation div that starts with &quot;fa&quot;
                    is a Font Awesome class, which results in the icon being displayed.  The other class names and the &quot;data-dir&quot;
-                   assist in the functioning of the plugin.  In order for the font icons to appear, you need to include a link
-                   to the Font Awesome css in the head section of your HTML.
+                   assist in the functioning of the plugin.
                 </p>
+                <p class="codedesc">In order for the font icons to appear, you need to include a link
+                   to the Font Awesome css in the head section of your HTML.</p>
                 <dl class="codelist">
                     <dt>Link to Font Awesome in the head section</dt>
                     <dd>
@@ -122,7 +124,7 @@
                 <p>You're welcome to use another font icon system, but you have to change the class names in the slideshow-nav div
                    to match whatever you decide to use.  You'll also need to specify the new class names in the options object
                    when you create the jQuery object.  This is explained better in the options section below.</p>
-                <p>The final, complete slideshow div should look something like this.</p>
+                <p class="codedesc">The final, complete slideshow div should look something like this.</p>
                 <dl class="codelist">
                     <dt>The complete slideshow div</dt>
                     <dd>
@@ -146,7 +148,9 @@
             </section>
             <section>
                 <h4>The CSS</h4>
-                <p>Either copy and paste all of the css into your own css code, or link to the slideshow.css file in the head.</p>
+                <p class="codedesc">Either copy and paste all of the css into your own css code, or put the slideshow.css
+                    file in your css directory and link to the slideshow.css file in the head.
+                </p>
                 <dl class="codelist">
                     <dt>Link to slideshow.css</dt>
                     <dd>
@@ -155,11 +159,14 @@
                         </ol>
                     </dd>
                 </dl>
-                <p>The slideshow.css file won't need to be modified, but you can if you want to.  Include a css selector in your
-                   main css file for the slideshow.  Use it to manpulate the size and positioning of the slideshow container.
-                   Each image will automatically fit the width of the container. For the best presentation, please make all of
-                   the images files the same width and height.  If your using images with different sizes, consider specifying
-                   the height of the .slideshow container so that it stays consistent.  </p>
+                <p>The slideshow.css file won't need to be modified, but you can if you want to. Each image will automatically fit the
+                   width of the container. For the best presentation, please make all of the images files the same width and height.
+                   If your using images with different sizes, consider specifying the height of the .slideshow container so that it stays consistent.
+                </p>
+                <p class="codedesc">  Include a css selector in your main css file for the slideshow.  Use it to manpulate the size
+                  and positioning of the slideshow container.  The navigation and captions are sized in em, so you can increase
+                   or decrease their size with font-size in the .slideshow selector.
+                </p>
                 <dl class="codelist">
                     <dt>.slideshow selector in your main css file</dt>
                     <dd>
@@ -171,21 +178,16 @@
                         </ol>
                     </dd>
                 </dl>
-                <p>If anything looks out of wack, first try adjusting the font-size of .slideshow.  All the elements, such as the font icons
-                   and the captions, are sized using ems, so you can increase or decrease their size with font-size in the .slideshow
-                   selector.
-                </p>
-                <p>As I mentioned earlier, all the images take the width of the container.  In the absence of javascript, the slideshow
-                   is a horizontal scrolling list of images.  In this instance, the images don't take the width of the container.  They
-                   are just their natural size.  If you'd like to alter their size in the event that there is no javascript, please
-                   add a css rule.
+                <p class="codedesc">In the absence of javascript, the slideshow is a horizontal scrolling list of images.
+                   In this instance, the images don't take the width of the slideshow container.  They are just their natural
+                   size.  If you'd like to alter their size in the event that there is no javascript, please add a css rule.
                 </p>
                 <dl class="codelist">
                     <dt>Force image size</dt>
                     <dd>
                         <ol>
                             <li><code>.slideshow img {</code></li>
-                            <li><code>width: 600px; /* width of each image */</code></li>
+                            <li><code>width: 600px; /* ideal display width of each image */</code></li>
                             <li><code>}</code></li>
                         </ol>
                     </dd>
@@ -193,30 +195,24 @@
             </section>
             <section>
                 <h4>The Javascript</h4>
-                <p>The Rhythnic slideshow depends on jQuery, so you have to link to jQuery before including the code for
-                   the slideshow in your page.  The code below will attempt to download jQuery from Google's CDN, and if that
-                   fails it will attempt to get it from jQuery.  The best place to include scripts and links to scripts is
+                <p>Put slideshow.js in your script directory (js).  The Rhythnic slideshow depends on jQuery, so you have to link
+                   to jQuery before linking to the slideshow.js file. The best place to include scripts and links to scripts is
                    at the bottom of the body container.
                 </p>
+                <p class="codedesc">  This code will attempt to download jQuery from Google's CDN, and if that
+                   fails it will attempt to get it from jQuery.
+                </p>
                 <dl class="codelist">
-                    <dt>Link to jQuery</dt>
+                    <dt>Link to jQuery and slideshow.js</dt>
                     <dd>
                         <ol>
                             <li><code>&lt;script src = &quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;</code></li>
                             <li><code>&lt;script&gt;window.jQuery || document.write('&lt;script src=&quot;//codeorigin.jquery.com/jquery-1.10.2.min.js&quot;&gt;&lt;\/script&gt;')&lt;/script&gt;</code></li>
-                        </ol>
-                    </dd>
-                </dl>
-                <p>After your links to download jQuery, add a line to include the slideshow.min.js script.</p>
-                <dl class="codelist">
-                    <dt>Link to slideshow.min.js</dt>
-                    <dd>
-                        <ol>
                             <li><code>&lt;script src=&quot;/js/slideshow.min.js&quot;&gt;&lt;/script&gt;</code></li>
                         </ol>
                     </dd>
                 </dl>
-                <p>The following code will create the slideshow for the div with a class of slideshow.  Be sure to put this
+                <p class="codedesc">This code will create the slideshow for all divs that have a class of slideshow.  Be sure to put this
                    after your lines to download jQuery and slideshow.min.js.  The code is placed inside of $window.load() to ensure that all the
                    images have downloaded before the slideshow is created.</p>
                 <dl class="codelist">
@@ -235,11 +231,14 @@
             <section>
                 <h4>Options</h4>
                 <p>Currently, there are 2 options to control playback.  You can have the slideshow auto-start when the page loads
-                   and you can specify the time between each picture when the slideshow is on play.  The values specified
-                   in the code below are the default values.  You can replace false with true to enable autoplay, and you can
-                   replace 5000 with however many milliseconds you would like to be in between each picture.  In regard to the
+                   and you can specify the time between each picture when the slideshow is on play. In regard to the
                    options object, you can specify any options in any order, including or omitting any at will, as long as you
-                   use the correct key names, such as play and timer.</p>
+                   use the correct key names, such as play and timer.
+                </p>
+                <p class="codedesc">  The values specified in this code are the default values.  You can replace false with
+                   true to enable autoplay, and you can replace 5000 with however many milliseconds you would like to be in
+                   between each picture.
+                </p>
                 <dl class="codelist">
                     <dt>Create the jQuery object for slideshow with options set</dt>
                     <dd>
@@ -252,7 +251,7 @@
                         </ol>
                     </dd>
                 </dl>
-                <p>If you have decided to use another font icon system, please specify the new play and pause class names in the
+                <p class="codedesc">If you have decided to use another font icon system, please specify the new play and pause class names in the
                    options object.</p>
                 <dl class="codelist">
                     <dt>Specifying class names for play and pause icons</dt>
@@ -274,7 +273,7 @@
                 <a href="//tutsplus.com/course/30-days-to-learn-jquery/">30 Days to Learn jQuery</a>.
                 The course is free at the time I'm writing this, and it really taught me a lot about jQuery
                 and about how to organize javascript code using dictionaries.  I highly recommend it.  I added the font icons
-                and possibly the autoplay, I can't remember.
+                to the tutorial code and possibly the autoplay, I can't remember.
             </p>
             <p>This plugin is open source and there is a public repository for it on Bitbucket called
                 <a href="//bitbucket.org/rhythnic/image-slideshow">image-slideshow</a>.  I will continue to develop it here and there in the future as time allows,
