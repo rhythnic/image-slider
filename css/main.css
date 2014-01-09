@@ -1,37 +1,24 @@
 @import url(normalize.css);
 
-
 /* template base color:  00AA72  rgb(0, 170, 114) */
 
+body { font: 100%/1.5 "Lucida Sans Unicode", "Lucida Grande", Lucida, Helvetica, Arial; }
 
-html { font-size: 62.5%; }
-
-body { font-family: "Lucida Sans Unicode", "Lucida Grande", Lucida, Helvetica, Arial; }
-
-h1 { font-size: 2.4rem; display: none; }
+h1 { display: none; }
 
 h2 {
-    font-size: 2.2rem;
+    font-size: 2em;
     text-align: center;
-    margin: 0 1rem 3rem;
-    font-size: 3rem;
+    margin-bottom: 1em;
     font-weight: normal;
     color: #fff;
 }
 
-h3 { font-size: 2rem; color: #006f4a; }
+h3 { color: #006f4a; }
 
 h4 {
-    font-size: 1.6rem;
     background: rgba(0, 170, 114, 0.2);
-    padding: 1rem;
-}
-
-h5 { font-size: 1.4rem; }
-
-p, a, li, dt, dd {
-    font-size: 1.6rem;
-    line-height: 1.5em;
+    padding: 1em;
 }
 
 p { color: #424242; }
@@ -44,30 +31,32 @@ a:hover, a:focus { color: #689CD3; }
 a:active { color: #bdbdbd; }
 
 dt { font-weight: bold; }
-dd { margin: 0 0 1rem 2rem; }
+dd { margin: 0 0 1em 2em; }
+pre { margin: 0; }
 
 .logoFont { font-family: Quicksand, sans-serif; }
 
 h2 .logoFont {
+    font-size: 2em;
     font-weight: bold;
     display: block;
-    padding-top: 3rem;
-    margin: 0 0 3rem;
-    font-size: 5rem;
+    margin-bottom: 0.5em;
     color: #fff;
-    text-shadow: 0.3rem 0.3rem #ff5600;
+    text-shadow: 0.06em 0.06em #ff5600;
 }
 
-.title-and-demo { background: #00aa72; }
+.title-and-demo {
+    background: #00aa72;
+    padding-top: 1px;
+}
 
 article header a {
     display: block;
-    width: 19rem;
-    margin: 0 auto 5rem;
-    border: 0.2rem solid #d8d8d8;
-    font-size: 2.5rem;
-    border-radius: 1rem;
-    padding: 1rem;
+    width: 10em;
+    margin: 0 auto 3em;
+    border: 0.1em solid #d8d8d8;
+    border-radius: 0.7em;
+    padding: 0.7em;
     text-align: center;
     background: rgba(255,255,255, 0.1);
 }
@@ -77,8 +66,8 @@ article header a:active { color: #bdbdbd; }
 
 article footer {
     background: #689CD3;
-    padding: 1rem 0.5rem;
-    margin-top: 6rem;
+    padding: 1em 0.5em;
+    margin-top: 6em;
 }
 
 article footer p:last-child {
@@ -90,7 +79,7 @@ article footer p {
 }
 
 code {
-    font: 1.4rem "Courier New", Courier, monospace;
+    font: 0.9em "Courier New", Courier, monospace;
     white-space: pre-wrap;       /* css-3 */
     white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
     white-space: -pre-wrap;      /* Opera 4-6 */
@@ -104,8 +93,8 @@ code {
 
 .codelist dt {
     background: #ddd;
-    padding: 0.7rem;
-    border-bottom: 0.2rem solid #fff;
+    padding: 0.4em;
+    border-bottom: 0.1em solid #fff;
 }
 
 .codelist li {
@@ -115,12 +104,12 @@ code {
 .codelist code {
     background: #eaeaea;
     display: block;
-    border-bottom: 0.2rem solid #fff;
-    border-right: 0.2rem solid #fff;
-    padding: 0.2rem 1rem;
+    border-bottom: 0.1em solid #fff;
+    border-right: 0.1em solid #fff;
+    padding: 0.1em 0.6em;
 }
 
-.demo { padding: 0 0 2rem; }
+.demo { padding: 0 0 1em; }
 .demo h3 { display: none; }
 
 
@@ -132,11 +121,7 @@ code {
 
 /***** Mobile *****/
 
-@media (max-width: 500px) {
-     
-}
-
-@media (max-width: 619px) {
+@media (max-width: 35em) {
     html { font-size: 50%; }
     
     .slideshow {
@@ -150,19 +135,18 @@ code {
 
 /***** Tablet *****/
 
-@media (min-width: 620px) {
+@media (min-width: 35em) {
       .slideshow {
         width: 600px;
         margin: 0 auto;
-        border: 1rem solid #fafafa;
-        border-radius: 0.5rem;
-        font-size: 160%;
+        border: 0.5em solid #fafafa;
+        border-radius: 0.2em;
     }
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 80em) {
     
-    .slideshow img { width: 40rem; }
+    .slideshow img { width: 40em; }
     
     h3 {
         text-align: center;
@@ -170,21 +154,21 @@ code {
     }
         
     section {
-        padding: 0 0.5rem;
-        margin-bottom: 4rem;
+        padding: 0 0.5em;
+        margin-bottom: 4em;
     }
     
     ol {
-        padding-left: 1rem;
+        padding-left: 1em;
     }  
 }
 
 
 /***** Desktop *****/
 
-@media (min-width: 1120px) {
+@media (min-width: 80em) {
     .container {
-        width: 1120px;
+        width: 80em;
         margin: 0 auto;
     }
     
@@ -207,11 +191,6 @@ code {
     .demo {
         display: inline-block;
         width: 60%;
-        margin-top: 2rem;    
+        margin-top: 2em;    
     }
 }
-
-
-/***** Large Screens *****/
-
-@media (min-width: 1400px) { html { font-size: 75%; } }
