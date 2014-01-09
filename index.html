@@ -8,7 +8,7 @@
     <link href='//fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <link href="/css/slideshow.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
-    <script src="/js/modernizr.js"></script>
+    <script src="/js/modernizr.custom.80160.js"></script>
 </head>
 <body>
     <h1>Rhythnic Image Slideshow jQuery Plugin</h1>
@@ -294,6 +294,7 @@
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery ||document.write('<script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"><\/script>')</script>
+    <script>Modernizr.load({ test: Modernizr.touch, yep : '/js/jquery.touchSwipe.min.js'});</script>
     <script src="/js/slideshow.js"></script>
     <script> $(window).load(function() { $('div.slideshow').slideshow( { play: false } ); }); </script>
 </body>
