@@ -2,7 +2,21 @@
 
 /* template base color:  00AA72  rgb(0, 170, 114) */
 
-body { font: 100%/1.5 "Lucida Sans Unicode", "Lucida Grande", Lucida, Helvetica, Arial; }
+/*
+*************************
+* elements
+*************************
+*/
+
+/* sectioning elements */
+
+body { font: 70%/1.5 "Lucida Sans Unicode", "Lucida Grande", Lucida, Helvetica, Arial; }
+
+section { padding: 0 0.5em; margin-bottom: 4em; }
+
+
+
+/* text elements */
 
 h1 { display: none; }
 
@@ -14,7 +28,11 @@ h2 {
     color: #fff;
 }
 
-h3 { color: #006f4a; }
+h3 {
+    color: #006f4a; 
+    text-align: center;
+    border-bottom: 1px solid #888;
+}
 
 h4 {
     background: rgba(0, 170, 114, 0.2);
@@ -30,26 +48,29 @@ a:hover, a:focus, a: active { text-decoration: underline; }
 a:hover, a:focus { color: #689CD3; }
 a:active { color: #bdbdbd; }
 
+
+
+/* list elements */
+
+ol { padding-left: 1em; }
 dt { font-weight: bold; }
 dd { margin: 0 0 1em 2em; }
+
+
+/* misc elements */
+
 pre { margin: 0; }
 
-.logoFont { font-family: Quicksand, sans-serif; }
 
-h2 .logoFont {
-    font-size: 2em;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5em;
-    color: #fff;
-    text-shadow: 0.06em 0.06em #ff5600;
-}
 
-.title-and-demo {
-    background: #00aa72;
-    padding-top: 1px;
-}
+/*
+*************************
+* sections
+*************************
+*/
 
+
+/* article header */
 article header a {
     display: block;
     width: 10em;
@@ -64,20 +85,57 @@ article header a {
 article header a:hover, article header a:focus { color: #fff; }
 article header a:active { color: #bdbdbd; }
 
+
+
+/* article footer */
 article footer {
     background: #689CD3;
     padding: 1em 0.5em;
     margin-top: 6em;
 }
 
-article footer p:last-child {
-    text-align: center;
+article footer p { color: #000; }
+article footer p:last-child { text-align: center; }
+
+
+/* container for header and slideshow demo */
+.title-and-demo {
+    background: #00aa72;
+    padding-top: 1px;
+    margin-bottom: 3em;
 }
 
-article footer p {
-    color: #000;
+
+/* slideshow and demo container */
+.demo { padding: 0; margin: 0; }
+.demo h3 { display: none; }
+
+.slideshow {
+    width: 100%;
+    font-size: 130%;
 }
 
+
+/*
+*************************
+* style classes
+*************************
+*/
+
+/* class for Rhythnic logo font */
+.logoFont { font-family: Quicksand, sans-serif; }
+
+h2 .logoFont {
+    font-size: 2em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5em;
+    color: #fff;
+    text-shadow: 0.06em 0.06em #ff5600;
+}
+
+
+/* code */
 code {
     font: 0.9em "Courier New", Courier, monospace;
     white-space: pre-wrap;       /* css-3 */
@@ -87,9 +145,7 @@ code {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
-.codelist {
-    border: 1px solid #aaa;
-}
+.codelist { border: 1px solid #aaa; }
 
 .codelist dt {
     background: #ddd;
@@ -97,9 +153,7 @@ code {
     border-bottom: 0.1em solid #fff;
 }
 
-.codelist li {
-    background: #fff;
-}
+.codelist li { background: #fff; }
 
 .codelist code {
     background: #eaeaea;
@@ -109,8 +163,6 @@ code {
     padding: 0.1em 0.6em;
 }
 
-.demo { padding: 0 0 1em; }
-.demo h3 { display: none; }
 
 
 /*
@@ -119,68 +171,27 @@ code {
 *************************
 */
 
-/***** Mobile *****/
-
-@media (max-width: 35em) {
-    html { font-size: 50%; }
+@media (min-width: 40em) {
+    body { font-size: 100%; }
     
     .slideshow {
-        width: 100%;
-        font-size: 175%;
-    }
-    
-    .demo { padding-bottom: 0; }
-}
-
-
-/***** Tablet *****/
-
-@media (min-width: 35em) {
-      .slideshow {
         width: 600px;
+        font-size: 100%;
         margin: 0 auto;
         border: 0.5em solid #fafafa;
         border-radius: 0.2em;
     }
-}
-
-@media (max-width: 80em) {
     
-    .slideshow img { width: 40em; }
-    
-    h3 {
-        text-align: center;
-        border-bottom: 1px solid #888;
+    .title-and-demo {
+        padding-bottom: 1em;
     }
-        
-    section {
-        padding: 0 0.5em;
-        margin-bottom: 4em;
-    }
-    
-    ol {
-        padding-left: 1em;
-    }  
 }
 
 
-/***** Desktop *****/
-
-@media (min-width: 80em) {
-    .container {
-        width: 80em;
-        margin: 0 auto;
-    }
-    
-    .codelist {
-        display: inline-block;
-        width: 60%;
-    }
-    
-    .codedesc {
-        float: right;
-        width: 38%;
-    }
+@media (min-width: 70em) {
+    .container { width: 70em; margin: 0 auto; }
+    .codelist { width: 60%; display: inline-block; }
+    .codedesc{ width: 38%; float: right; }
     
     article header {
         display: inline-block;
