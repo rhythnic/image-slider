@@ -43,6 +43,18 @@ if ( typeof Object.create !== 'function' ) {
                 self.$nav.fadeOut(200);
             });
             
+            if (Modernizr.touch) {
+                self.$elem.swipe( {
+                    swipe:function(event, direction, distance, duration, fingerCount) {
+                        var swipeDir = direction == "left" ? "next" : "prev";
+                        self.setCurrent( swipeDir );
+                        self.transition();
+                    },
+                    threshold: 20,   //the higher, the more they have to swipe
+                    triggerOnTouchEnd: false
+                });
+            }
+            
             self.$nav.on('click', 'i.skip', function() {
                 self.setCurrent( $(this).data('dir') );
                 self.transition();
