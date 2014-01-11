@@ -8,10 +8,9 @@
 .slideshow img { height: auto; vertical-align: top; }
 
 .slideshow-nav {
-    display: block;
-    width: 100%;
     background: rgba(20, 20, 20, 0.7);
     text-align: center;
+    clear: left;
 }
 
 .no-touch .slideshow-nav {
