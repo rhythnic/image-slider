@@ -127,5 +127,3 @@ if (typeof Object.create !== 'function') {
     };
     
 })(jQuery, window, document);
-
-
