@@ -38,6 +38,12 @@ if (typeof Object.create !== 'function') {
         bindEvents: function () {
             var self = this;
             
+            self.$elem.on('resize', function () {
+                self.elemWidth = self.$elem.css("width");
+                self.imgs.css("width", self.elemWidth);
+                self.imgWidth = parseInt(self.elemWidth.substr(0, self.elemWidth.length - 2), 10);
+            });
+            
             self.$elem.on('mouseover', function () {
                 self.$elem.addClass("hover");
             });
