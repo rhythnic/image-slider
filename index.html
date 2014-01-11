@@ -8,7 +8,7 @@
     <link href='//fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
     <link href="css/slideshow.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <script src="js/modernizr.custom.80160.js"></script>
+    <script src="js/modernizr.custom.78546.js"></script>
 </head>
 <body>
     <h1>Rhythnic Image Slideshow jQuery Plugin</h1>
@@ -65,7 +65,7 @@
                     <dt>js</dt>
                     <dd>slideshow.js - plugin file, use the min version for normal use, but you can refer to or tweak this one.</dd>
                     <dd>slideshow.min.js - minimized version of the slideshow plugin</dd>
-                    <dd>modernizr.custom.80160 - modernizr that contains only touch events support (and other basic Modernizr functionality)</dd>
+                    <dd>modernizr.custom.78546 - modernizr that contains only touch events support (and other basic Modernizr functionality)</dd>
                     <dd>jquery.touchSwipe.min.js - the jquery plugin that allows us to swipe on touch screens</dd>
                     <dt>css</dt>
                     <dd>main.css - css file for this tutorial page, you won't need to import this, but it's here for reference</dd>
@@ -92,7 +92,7 @@
                             <li><pre><code>  &lt;link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;</code></pre></li>
                             <li><pre><code>  &lt;link href="/css/slideshow.css" rel="stylesheet"&gt;</code></pre></li>
                             <li><pre><code>  &lt;link href="/css/main.css" rel="stylesheet"&gt;</code></pre></li>
-                            <li><pre><code>  &lt;script src="/js/modernizr.custom.80160.js"&gt;&lt;/script&gt;</code></pre></li>
+                            <li><pre><code>  &lt;script src="/js/modernizr.custom.78546.js"&gt;&lt;/script&gt;</code></pre></li>
                             <li><code>&lt;/head&gt;</code></li>
                         </ol>
                     </dd>
@@ -245,12 +245,15 @@
                         <ol>
                             <li><code>&lt;script src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;</code></li>
                             <li><code>&lt;script&gt;window.jQuery || document.write('&lt;script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;</code></li>
-                            <li><code>&lt;script&gt;Modernizr.load({ test: Modernizr.touch, yep : '/js/jquery.touchSwipe.min.js'});&lt;/script&gt;</code></li>
+                            <li><code>&lt;script&gt;Modernizr.touch &amp;&amp; document.write('&lt;script src="js/jquery.touchSwipe.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;</code></li>
                             <li><code>&lt;script src="/js/slideshow.min.js"&gt;&lt;/script&gt;</code></li>
                             
                         </ol>
                     </dd>
                 </dl>
+                <p>On a sidenote, for anyone who knows about Modernizr.load, I chose "Modernizr.touch &amp;&amp;" instead because
+                    Modernizr.load doesn't work with iOS devices 4.3 and earlier.
+                </p>
                 <p class="codedesc">This code will create the slideshow for all divs that have a class of slideshow
                     The code is placed inside of $window.load() to ensure that all the images have downloaded before the slideshow is created.
                 </p>
