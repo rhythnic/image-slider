@@ -56,7 +56,8 @@ if (typeof Object.create !== 'function') {
                         self.$elem.addClass("hover");
                     },
                     threshold: 75,   //the higher, the more they have to swipe
-                    triggerOnTouchEnd: false
+                    triggerOnTouchEnd: false,
+                    allowPageScroll: "vertical"
                 });
             }
             
