@@ -53,6 +53,7 @@ if (typeof Object.create !== 'function') {
                         var swipeDir = direction === "left" ? "next" : "prev";
                         self.setCurrent(swipeDir);
                         self.transition();
+                        self.$elem.addClass("hover");
                     },
                     threshold: 75,   //the higher, the more they have to swipe
                     triggerOnTouchEnd: false
