@@ -145,13 +145,19 @@
                     </dd>
                 </dl>
                 <p>The Rhythnic Image Slideshow uses <a href="//fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
-                   a popular brand of font icons, which work by assigning classes to i elements.  Any i element in the slideshow with an "fa" class
-                   is a Font Awesome icon.  The other class names and the "data-dir" attribute assist in the functioning of the plugin.
+                    a popular brand of font icons, which work by assigning classes to i elements.  Any i element in the slideshow with an "fa" class
+                    is a Font Awesome icon.  The other class names and the "data-dir" attribute assist in the functioning of the plugin.
+                    I chose Font Awesome because it's free and very user friendly.
                 </p>
-                
-                <p>You're welcome to use another font icon system, but you have to change the class names to match whatever you decide to use.
+                <p>I chose to include the entire Font Awesome collection
+                    by linking to it in the head section for a few reasons, even though we're downloading more than is necessary.
+                    The first reason is that it keeps the slideshow package simple.
+                    Also, the less I integrate the font icon system, the easier it is for developers to integrate the slideshow plugin
+                    with the other font icons on their site, whether they are using Font Awesome or another font icon system.
+                    You're welcome to use another font icon system, but you have to change the class names to match whatever you decide to use.
                     You'll also need to specify the new class names in the options object when you create the jQuery object.  This is explained
-                    better in the options section below.
+                    better in the options section below.  Beginning developers will also benifit from the simplicity of linking
+                    to Font Awesome in the head.
                 </p>
                 <p class="codedesc">Under the navigation, include a message that tells touch screen users to swipe.</p>
                 <dl class="codelist">
