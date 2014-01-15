@@ -70,24 +70,6 @@ pre { margin: 0; }
 *************************
 */
 
-
-/* article header */
-article header a {
-    display: block;
-    width: 10em;
-    margin: 0 auto 3em;
-    border: 0.1em solid #d8d8d8;
-    border-radius: 0.7em;
-    padding: 0.7em;
-    text-align: center;
-    background: rgba(255,255,255, 0.1);
-}
-
-article header a:hover, article header a:focus { color: #fff; }
-article header a:active { color: #bdbdbd; }
-
-
-
 /* article footer */
 article footer {
     background: #689CD3;
