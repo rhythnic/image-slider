@@ -53,7 +53,6 @@ a:active { color: #bdbdbd; }
 
 /* list elements */
 
-ol { padding-left: 1em; }
 dt { font-weight: bold; }
 dd { margin: 0 0 1em 2em; }
 
@@ -120,28 +119,16 @@ h2 .logoFont {
 
 /* code */
 code {
-    font: 0.9em "Courier New", Courier, monospace;
+    font-size: 0.9em monospace;
 }
 
-.codelist { border: 1px solid #aaa; overflow-x: auto;}
+.codelist { border: 1px solid #aaa; overflow-x: auto; background: #eaeaea;}
 
 .codelist dt {
-    background: #ddd;
-    padding: 0.4em;
-    border-bottom: 0.1em solid #fff;
+    padding: 1em;
 }
 
-.codelist li { background: #fff; }
-
-.codelist code {
-    background: #eaeaea;
-    display: block;
-    border-bottom: 0.1em solid #fff;
-    border-right: 0.1em solid #fff;
-    padding: 0.1em 0.6em;
-}
-
-.codelist dt, .codelist dd { float: left; }
+.codelist dd { float: left; margin-left: 0;}
 
 /*
 *************************
