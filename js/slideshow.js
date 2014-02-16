@@ -29,6 +29,8 @@ if (typeof Object.create !== 'function') {
             
             self.options = $.extend({}, $.fn.slideshow.options, options);  //options array
             
+            self.orientationEvent = ("onorientationchange" in window) ? "orientationchange" : "resize";
+            
             self.bindEvents();
             
             if (self.options.play) { self.toggleplay(self.options.timer); }  //toggle play on if play is set to true in options
@@ -38,11 +40,19 @@ if (typeof Object.create !== 'function') {
         bindEvents: function () {
             var self = this;
             
-            self.$elem.on('resize', function () {
+            window.addEventListener("orientationchange", function(){
+                console.log("orientation change event fired");
                 self.elemWidth = self.$elem.css("width");
                 self.imgs.css("width", self.elemWidth);
                 self.imgWidth = parseInt(self.elemWidth.substr(0, self.elemWidth.length - 2), 10);
-            });
+            }, false);
+            
+            window.addEventListener("resize", function(){
+                console.log("resize event fired");
+                self.elemWidth = self.$elem.css("width");
+                self.imgs.css("width", self.elemWidth);
+                self.imgWidth = parseInt(self.elemWidth.substr(0, self.elemWidth.length - 2), 10);
+            }, false);
             
             self.$elem.on('mouseover', function () {
                 self.$elem.addClass("hover");
