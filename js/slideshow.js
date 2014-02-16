@@ -41,14 +41,12 @@ if (typeof Object.create !== 'function') {
             var self = this;
             
             window.addEventListener("orientationchange", function(){
-                console.log("orientation change event fired");
                 self.elemWidth = self.$elem.css("width");
                 self.imgs.css("width", self.elemWidth);
                 self.imgWidth = parseInt(self.elemWidth.substr(0, self.elemWidth.length - 2), 10);
             }, false);
             
             window.addEventListener("resize", function(){
-                console.log("resize event fired");
                 self.elemWidth = self.$elem.css("width");
                 self.imgs.css("width", self.elemWidth);
                 self.imgWidth = parseInt(self.elemWidth.substr(0, self.elemWidth.length - 2), 10);
