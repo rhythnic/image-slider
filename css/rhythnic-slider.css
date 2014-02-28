@@ -1,19 +1,17 @@
-.slideshow {
+.rhythnic-slider {
     position: relative;
     overflow: scroll;  /* allows for users to scroll images in the absence of javascript */
 }
 
-.js .slideshow { overflow: hidden; }
+.rhythnic-slider img { height: auto; vertical-align: top; }
 
-.slideshow img { height: auto; vertical-align: top; }
-
-.slideshow-nav {
+.slider-nav {
     background: rgba(20, 20, 20, 0.7);
     text-align: center;
     clear: left;
 }
 
-.no-touch .slideshow-nav {
+.no-touch .slider-nav {
     display: none;
     position: absolute;
     margin: 1em;
@@ -22,10 +20,10 @@
     border-radius: 1.5em;
 }
 
-.no-js .slideshow-nav { display: none; }
-.no-touch .hover .slideshow-nav { display: block; }
+.no-js .slider-nav { display: none; }
+.no-touch .rhythnic-slider:hover .slider-nav { display: block; }
 
-.slideshow-nav i {
+.slider-nav i {
     cursor: pointer;
     width: 1em;
     padding: 0.3em 1.3em;
@@ -33,7 +31,7 @@
     font-size: 1.3em;
 }
 
-.no-touch .slideshow-nav i {
+.no-touch .slider-nav i {
     padding: 0.3em 0.4em;
 }
 
@@ -46,22 +44,24 @@
     text-align: center;
 }
 
-.no-touch .swipe-msg, .hover .swipe-msg { display: none; }
+.no-touch .swipe-msg, .rhythnic-slider:hover .swipe-msg { display: none; }
 
-.slideshow ul {
+.rhythnic-slider ul {
     list-style: none;
     width: 10000px;
     margin: 0;
     padding: 0;
+    -webkit-transition: margin-left 1s, -webkit-transform 1s;
+    transition: margin-left 1s, transform 1s;
 }
 
-.slideshow li {
+.rhythnic-slider li {
     float: left;
     position: relative;
 }
 
 /* captions and swipe-msg */
-.slideshow p {
+.rhythnic-slider p {
     font-size: 0.8em;
     position: absolute;
     background: rgba(20, 20, 20, 0.7);
@@ -70,7 +70,7 @@
 }
 
 /* captions */
-.slideshow li p {
+.rhythnic-slider li p {
     bottom: 0; 
     margin: 0;
     line-height: 1.3em;

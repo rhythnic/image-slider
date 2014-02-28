@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Rhythnic Image Slideshow</title>
+    <title>Rhythnic Image Slider</title>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
-    <link href="css/slideshow.css" rel="stylesheet">
+    <link href="css/rhythnic-slider.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <script src="js/modernizr.custom.78546.js"></script>
+    <script src="js/hand-1.3.5.js"></script>
+    <script language="javascript"> HANDJS.doNotProcessCSS = true;</script>
 </head>
 <body>
-    <h1>Rhythnic Image Slideshow jQuery Plugin</h1>
+    <h1>Rhythnic Image Slider javascript component</h1>
     <article>
         <div class="title-and-demo"><div class="container">
             <header>
-                <h2><span class="logoFont">Rhythnic</span> Image Slideshow with swipe for touch screens jQuery Plugin </h2>
+                <h2><span class="logoFont">Rhythnic</span> Image Slider with swipe for touch screens</h2>
             </header><section class="demo">
-                <h3>Image Slideshow demonstration</h3>
-                <div class="slideshow">
+                <h3>Image slider demonstration</h3>
+                <div class="rhythnic-slider">
                     <ul>
                         <li><img src="img/colored-orb-lights.jpg" alt="Colored orb lights">
                         <p>Colored orb lights.  Aren't they so pretty?</p>
@@ -28,7 +30,7 @@
                             <p>A model train station</p></li>
                         <li><img src="img/pool-art.jpg" alt="Architecture art"></li>
                     </ul>
-                    <div class="slideshow-nav">
+                    <div class="slider-nav">
                         <i data-dir="prev" class="skip fa fa-chevron-left"></i>
                         <i class="play fa fa-play"></i>
                         <i data-dir="next" class="skip fa fa-chevron-right"></i>
@@ -38,20 +40,19 @@
             </section>
         </div></div>
         <section><div class="container">
-            <h3>About the Rhythnic Slideshow plugin</h3>
-            <p>The Rhythnic Slideshow jquery plugin is a lightweight, customizable jquery slider plugin made for image slideshows.
+            <h3>About Rhythnic Image Slider</h3>
+            <p>The Rhythnic Image Slider is a javascript component for converting image lists into slideshows.  It doesn't rely on jQuery,
+                so it's smaller and requires less bandwidth than many other image sliders.
                 Users of touch screens can navigate the slideshow by swiping left or right.  Desktop users will see the navigation icons
-                appear when their mouse hovers over the slideshow.  The plugin is dependent upon jQuery, Modernizr, Font Awesome, and
-                the touchSwipe plugin for jQuery.  I'll explain how to setup the plugin and incorporate all of these technologies in
-                the instructions below.  Setting up the Rhythnic Slideshow plugin does require a little knowledge of HTML and CSS.
+                appear when their mouse hovers over the image.  The plugin is dependent upon hand.js for enabling pointer events.
+                Once browsers start to support pointer events, hand.js can be removed.  We're also depending on Modernizr's detection of
+                touch events to customize the look. Setting up the Rhythnic Image Slider does require a little knowledge of HTML and CSS.
             </p>
         </div></section>
         <section><div class="container">
-            <h3>How to Use the Image Slideshow Plugin</h3>
-            <p>Putting the Rhythnic Image Slideshow on your page is a combination of HTML, CSS, and a little bit of javascript.
-               Below I've broken it down into those sections so that you know exactly what to do to put the slideshow on your page.
-                I'll also show you how to incorporate the technologies that the slideshow depends on, such as jQuery, Font Awesome,
-                Modernizr, and touchSwipe.
+            <h3>How to Use the Image Slider Plugin</h3>
+            <p>Putting the Rhythnic Image Slider on your page is a combination of HTML, CSS, and a little bit of javascript.
+                Below I've broken it down into those sections so that you know exactly what to do to put the slider on your page.
             </p>
             <section>
                 <h4>The Zip File</h4>
@@ -61,52 +62,47 @@
                     <dd>If you open this in your browser, you'll see the same page that you're viewing right now, or at least
                         something very similar.</dd>
                     <dt>js</dt>
-                    <dd>slideshow.js - plugin file, use the min version for normal use, but you can refer to or tweak this one.</dd>
-                    <dd>slideshow.min.js - minimized version of the slideshow plugin</dd>
+                    <dd>rhythnic-slider.js - plugin file, use the min version for normal use, but you can refer to or tweak this one.</dd>
+                    <dd>rhythnic-slider.min.js - minimized version of the slider plugin</dd>
                     <dd>modernizr.custom.78546 - modernizr that contains only touch events support (and other basic Modernizr functionality)</dd>
-                    <dd>jquery.touchSwipe.min.js - the jquery plugin that allows us to swipe on touch screens</dd>
                     <dt>css</dt>
                     <dd>main.css - css file for this tutorial page, you won't need to import this, but it's here for reference</dd>
-                    <dd>slideshow.css - css file/rules for the slideshow</dd>
-                    <dt>img</dt>
-                    <dd>Images released with a create-commons license.</dd>
+                    <dd>rhythnic-slider.css - css file/rules for the slider</dd>
                 </dl>
             </section>
             <section>
                 <h4>The HTML</h4>
-                <p>Let's go over the code for the HTML file that will include the slideshow.  We'll start at the top and work down.</p>
+                <p>Let's go over the code for the HTML file that will include the slider.  We'll start at the top and work down.</p>
                 <p class="codedesc"><strong>The HEAD</strong> <i class="fa fa-male"></i><i class="fa fa-female"></i><br>
-                    Link to font awesome to enable the icons to display.  Put slideshow.css in your css folder
-                    and link to it.  The file main.css is whatever your primary css file is for your page.  If you copy and paste the rules
-                    from slideshow.css into your main.css, you can omit the link to slideshow.css.  Include the Modernizr script in the head.
-                    Modernizr will detect touch screens, and the slideshow will look and act accordingly.
+                Any build of Modernizr that tests for touch will do.  You can also swap out the icon font system by specifying the play and pause
+                class names in the options object when creating the slider in js.
                 </p>
                 <dl class="codelist">
-                    <dt>The HEAD:  CSS, Modernizr, Font Awesome, Viewport</dt>
+                    <dt>The HEAD:  CSS, Modernizr, Font Awesome</dt>
                     <dd>
                         <ol>
                             <li><code>&lt;head&gt;</code></li>
                             <li><pre><code>  &lt;meta charset="UTF-8"&gt;</code></pre></li>
-                            <li><pre><code>  &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</code></pre></li>
+                            <li><pre><code>  &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;</code></pre></li>
                             <li><pre><code>  &lt;title&gt;Your page title&lt;/title&gt;</code></pre></li>
                             <li><pre><code>  &lt;link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;</code></pre></li>
-                            <li><pre><code>  &lt;link href="/css/slideshow.css" rel="stylesheet"&gt;</code></pre></li>
+                            <li><pre><code>  &lt;link href="/css/rhythnic-slider.css" rel="stylesheet"&gt;</code></pre></li>
                             <li><pre><code>  &lt;link href="/css/main.css" rel="stylesheet"&gt;</code></pre></li>
                             <li><pre><code>  &lt;script src="/js/modernizr.custom.78546.js"&gt;&lt;/script&gt;</code></pre></li>
                             <li><code>&lt;/head&gt;</code></li>
                         </ol>
                     </dd>
                 </dl>
-                <p class="codedesc">Let's look at our list of images next.  The slideshow works by manipulating a list on your site.
-                    Include the list inside of a div with a class of slideshow and place that div on your page whereever you want the slideshow
-                    to be.  Rhytnic's slideshow is made for use with images, but you could tweak it for other purposes.  Any number of images is fine,
+                <p class="codedesc">Let's look at our list of images next.  The slider works by manipulating a list on your site.
+                    Include the list inside of a div with a class of rhythnic-slider and place that div on your page whereever you want the slider
+                    to be.  Rhytnic's slider is made for use with images, but you could tweak it for other purposes.  Any number of images is fine,
                     but they should be the same size.
                 </p>
                 <dl class="codelist">
-                    <dt>A list of images inside of a div with a class of slideshow</dt>
+                    <dt>A list of images inside of a div with a class of rhythnic-slider</dt>
                     <dd>
                         <ol>
-                            <li><code>&lt;div class="slideshow"&gt;</code></li>
+                            <li><code>&lt;div class="rhythnic-slider"&gt;</code></li>
                             <li><pre><code>  &lt;ul&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image1.jpg" alt="Description of image one"&gt;&lt;/li&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image2.jpg" alt="Description of image two"&gt;&lt;/li&gt;</code></pre></li>
@@ -129,30 +125,30 @@
                         </ol>
                     </dd>
                 </dl>
-                <p class="codedesc">Copy this div for the slideshow navigation and paste it below the unordered list of images, but still inside
-                   of the div with a class of slideshow.
+                <p class="codedesc">Copy this div for the slider navigation and paste it below the unordered list of images, but still inside
+                   of the div with a class of rhythnic-slider.
                 </p>
                 <dl class="codelist">  
-                    <dt>Slideshow navigation div</dt>
+                    <dt>Slider navigation div</dt>
                     <dd>
                         <ol>
-                            <li><code>&lt;div class="slideshow-nav"&gt;</code></li>
-                            <li><pre><code>  &lt;i data-dir="prev" class="skip fa fa-chevron-left"&gt;&lt;/i&gt;</code></pre></li>
+                            <li><code>&lt;div class="slider-nav"&gt;</code></li>
+                            <li><pre><code>  &lt;i class="skip fa fa-chevron-left" data-dir="prev"&gt;&lt;/i&gt;</code></pre></li>
                             <li><pre><code>  &lt;i class="play fa fa-play"&gt;&lt;/i&gt;</code></pre></li>
-                            <li><pre><code>  &lt;i data-dir="next" class="skip fa fa-chevron-right"&gt;&lt;/i&gt;</code></pre></li>
+                            <li><pre><code>  &lt;i class="skip fa fa-chevron-right" data-dir="next"&gt;&lt;/i&gt;</code></pre></li>
                             <li><code>&lt;/div&gt;</code></li>
                         </ol>
                     </dd>
                 </dl>
-                <p>The Rhythnic Image Slideshow uses <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
-                    a popular brand of font icons, which work by assigning classes to i elements.  Any i element in the slideshow with an "fa" class
+                <p>The Rhythnic Image Slider uses <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
+                    a popular brand of font icons, which work by assigning classes to i elements.  Any i element in the slider with an "fa" class
                     is a Font Awesome icon.  The other class names and the "data-dir" attribute assist in the functioning of the plugin.
                     I chose Font Awesome because it's free and very user friendly.
                 </p>
                 <p>I chose to include the entire Font Awesome collection
                     by linking to it in the head section for a few reasons, even though we're downloading more than is necessary.
-                    The first reason is that it keeps the slideshow package simple.
-                    Also, the less I integrate the font icon system, the easier it is for developers to integrate the slideshow plugin
+                    The first reason is that it keeps the slider package simple.
+                    Also, the less I integrate the font icon system, the easier it is for developers to integrate the slider plugin
                     with the other font icons on their site, whether they are using Font Awesome or another font icon system.
                     You're welcome to use another font icon system, but you have to change the class names to match whatever you decide to use.
                     You'll also need to specify the new class names in the options object when you create the jQuery object.  This is explained
@@ -164,23 +160,25 @@
                     <dt>Swipe message</dt>
                     <dd>
                         <ol>
-                            <li><code>&lt;p class="swipe-msg"&gt;&lt;i class="fa fa-long-arrow-left"&gt;&lt;/i&gt; swipe &lt;i class="fa fa-long-arrow-right"&gt;&lt;/i&gt;&lt;/p&gt;</code></li>
+                            <li><code>&lt;p class="swipe-msg"&gt;&lt;i class="fa fa-long-arrow-left"&gt;&lt;/i&gt;&lt;/p&gt;</code></li>
+                            <li><pre><code>  swipe &lt;i class="fa fa-long-arrow-right"&gt;&lt;/i&gt;</code></pre></li>
+                            <li><code>&lt;/p&gt;</code></li>
                         </ol>
                     </dd>
                 </dl>
-                <p class="codedesc">The final, complete slideshow div should look something like this.</p>
+                <p class="codedesc">The final, complete slider div should look something like this.</p>
                 <dl class="codelist">
-                    <dt>The complete slideshow div</dt>
+                    <dt>The complete slider div</dt>
                     <dd>
                         <ol>
-                            <li><code>&lt;div class="slideshow"&gt;</code></li>
+                            <li><code>&lt;div class="rhythnic-slider"&gt;</code></li>
                             <li><pre><code>  &lt;ul&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image1.jpg" alt="Description of image one"&gt;&lt;/li&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image2.jpg" alt="Description of image two"&gt;&lt;/li&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image3.jpg" alt="Description of image three"&gt;&lt;/li&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image4.jpg" alt="Description of image four"&gt;&lt;/li&gt;</code></pre></li>
                             <li><pre><code>  &lt;/ul&gt;</code></pre></li>
-                            <li><pre><code>  &lt;div class="slideshow-nav"&gt;</code></pre></li>
+                            <li><pre><code>  &lt;div class="slider-nav"&gt;</code></pre></li>
                             <li><pre><code>    &lt;i data-dir="prev" class="skip fa fa-chevron-left"&gt;&lt;/i&gt;</code></pre></li>
                             <li><pre><code>    &lt;i class="play fa fa-play"&gt;&lt;/i&gt;</code></pre></li>
                             <li><pre><code>    &lt;i data-dir="next" class="skip fa fa-chevron-right"&gt;&lt;/i&gt;</code></pre></li>
@@ -193,78 +191,71 @@
             </section>
             <section>
                 <h4>The CSS</h4>
-                <p>We covered how to include the css in the HEAD section of your page.  Next we'll look at styling or positioning the slideshow.</p>
-                <p>The slideshow.css file won't need to be modified, but you can if you want to. Each image will automatically fit the
-                   width of the container. For the best presentation, please make all of the images files the same width and height.
-                   If your using images with different sizes, consider specifying the height of the .slideshow container so that it stays consistent.
-                </p>
-                <p class="codedesc">  Include a css selector in your main css file for the slideshow.  Use it to manpulate the size,
-                  position, and style of the slideshow container.  The navigation and captions are sized in em, so you can increase
-                   or decrease their size with font-size in the .slideshow selector.
-                </p>
+                <p class="codedesc">The rule for the slider container is at the top of rhythnic-slider.css.  Use it to manipulate the size and the positioning of the slider.
+                Don't change position relative and overflow scroll.</p>
                 <dl class="codelist">
-                    <dt>.slideshow selector in your main css file</dt>
+                    <dt>.rhythnic-slider selector in your main css file</dt>
                     <dd>
                         <ol>
-                            <li><code>.slideshow {</code></li>
+                            <li><code>.rhythnic-slider {</code></li>
                             <li><pre><code>  width: 600px; /* width of container */</code></pre></li>
-                            <li><pre><code>  font-size: 100%;  /* adjust to control the sizing of the icons and text in slideshow*/</code></pre></li>
+                            <li><pre><code>  font-size: 100%;  /* adjust to control the sizing of the icons and text in slider*/</code></pre></li>
+                            <li><pre><code>  position: relative;</code></pre></li>
+                            <li><pre><code>  overflow: scroll; /*For no-js browsers */</code></pre></li>
                             <li><code>}</code></li>
                         </ol>
                     </dd>
                 </dl>
-                <p class="codedesc">In the absence of javascript, the slideshow is a horizontal scrolling list of images.
-                   In this instance, the images don't take the width of the slideshow container.  They are just their natural
+                <p>Each image will automatically fit the width of the container, even as you change the size of the container (assuming js is enabled).
+                   For the best presentation, please make all of the images files the same width and height.  If your using images with different sizes,
+                   consider specifying the height of the slider container so that it stays consistent.
+                   In the absence of javascript, the slider is a horizontal scrolling list of images.
+                   In this instance, the images don't take the width of the slider container.  They are just their natural
                    size.  If you'd like to alter their size in the event that there is no javascript, please add a css rule.
                 </p>
                 <dl class="codelist">
                     <dt>Force image size</dt>
                     <dd>
                         <ol>
-                            <li><code>.slideshow img {</code></li>
+                            <li><code>.rhythnic-slider img {</code></li>
                             <li><pre><code>  width: 600px; /* ideal display width of each image */</code></pre></li>
                             <li><code>}</code></li>
                         </ol>
                     </dd>
                 </dl>
+                <p>There is also a CSS transition rule for controling the the image transition speed.  Right now it's one second, but you can change it in the CSS.</p>
             </section>
             <section>
                 <h4>The Javascript</h4>
-                <p>Put slideshow.min.js, modernizr.custom.80160.js, and jquery.touchSwipe.min.js in your script directory (js).
-                    The Rhythnic slideshow depends on jQuery and the other js files, so you have to link to them
-                    before linking to the slideshow.js file. The best place to include scripts, Modernizr excluded, is
-                   at the bottom of the body container.
-                </p>
-                <p class="codedesc">  The first 2 lines get jQuery from Google's CDN with jquery.com as a fallback.  In the 3rd line, Modernizr tests for
-                    touch screens, and if the page was loaded on a touch screen, the touchSwipe plugin is imported.  The 4th line imports the Rhythnic
-                    slideshow plugin.
+                <p>Put rhythnic-slider.min.js, modernizr.custom.80160.js in your script directory (js) and link to them in the HTML.
+                   We already linked to Modernizr in the head.
+                   The best place to include scripts, Modernizr excluded, is at the bottom of the body container.
                 </p>
                 <dl class="codelist">
-                    <dt>Link to jQuery and slideshow.js</dt>
+                    <dt>Link to rhythnic-slider.min.js</dt>
                     <dd>
                         <ol>
-                            <li><code>&lt;script src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;</code></li>
-                            <li><code>&lt;script&gt;window.jQuery || document.write('&lt;script src="//codeorigin.jquery.com/jquery-1.10.2.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;</code></li>
-                            <li><code>&lt;script&gt;Modernizr.touch &amp;&amp; document.write('&lt;script src="js/jquery.touchSwipe.min.js"&gt;&lt;\/script&gt;')&lt;/script&gt;</code></li>
-                            <li><code>&lt;script src="/js/slideshow.min.js"&gt;&lt;/script&gt;</code></li>
-                            
+                            <li><code>&lt;script src="/js/rhythnic-slider.min.js"&gt;&lt;/script&gt;</code></li>
                         </ol>
                     </dd>
                 </dl>
-                <p>On a sidenote, for anyone who knows about Modernizr.load, I chose "Modernizr.touch &amp;&amp;" instead because
-                    Modernizr.load doesn't work with iOS devices 4.3 and earlier.
-                </p>
-                <p class="codedesc">This code will create the slideshow for all divs that have a class of slideshow
-                    The code is placed inside of $window.load() to ensure that all the images have downloaded before the slideshow is created.
+                <p>This code will create the slider for all divs that have a class of rhythnic-slider
+                    The code is placed inside of window.onload to ensure that all the images have downloaded before the slider is created.
                 </p>
                 <dl class="codelist">
-                    <dt>Create the jQuery object for slideshow</dt>
+                    <dt>Create and initiate many sliders</dt>
                     <dd>
                         <ol>
                             <li><code>&lt;script&gt;</code></li>
-                            <li><code>$(window).load(function() {</code></li>
-                            <li><pre><code>  $('div.slideshow').slideshow();</code></pre></li>
-                            <li><code>});</code></li>
+                            <li><code>window.onload = function() {</code></li>
+                            <li><pre><code>  var sliderContainers = document.getElementsByClassName('rhythnic-slider');</code></pre></li>
+                            <li><pre><code>  var sliders = [];</code></pre></li>
+                            <li><pre><code>  for (var i = 0; i < sliderContainers.length; i++){</code></pre></li>
+                            <li><pre><code>    var slider = new Object(RhythnicImageSlider);</code></pre></li>
+                            <li><pre><code>    slider.init(sliderContainers[i]);</code></pre></li>
+                            <li><pre><code>    sliders.push(slider);</code></pre></li>
+                            <li><pre><code>  }</code></pre></li>
+                            <li><code>};</code></li>
                             <li><code>&lt;/script&gt;</code></li>
                         </ol>
                     </dd>
@@ -272,8 +263,8 @@
             </section>
             <section>
                 <h4>Options</h4>
-                <p>Currently, there are 2 options to control playback.  You can have the slideshow auto-start when the page loads
-                   and you can specify the time between each picture when the slideshow is on play. In regard to the
+                <p>Currently, there are 2 options to control playback.  You can have the slider auto-start when the page loads
+                   and you can specify the time between each picture when the slider is on play. In regard to the
                    options object, you can specify any options in any order, including or omitting any at will, as long as you
                    use the correct key names, such as play and timer.
                 </p>
@@ -282,27 +273,31 @@
                    between each picture.
                 </p>
                 <dl class="codelist">
-                    <dt>Create the jQuery object for slideshow with options set</dt>
+                    <dt>Create one slider and pass options</dt>
                     <dd>
                         <ol>
                             <li><code>&lt;script&gt;</code></li>
-                            <li><code>$(window).load(function() {</code></li>
-                            <li><pre><code>  $('div.slideshow').slideshow( { play: false, timer: 5000 });</code></pre></li>
-                            <li><code>});</code></li>
+                            <li><code>window.onload = function() {</code></li>
+                            <li><pre><code>  var sliderContainer = document.getElementsByClassName('rhythnic-slider')[0];</code></pre></li>
+                            <li><pre><code>  var slider = new Object(RhythnicImageSlider);</code></pre></li>
+                            <li><pre><code>  slider.init(sliderContainer, { play: false, timer: 5000 });</code></pre></li>
+                            <li><code>};</code></li>
                             <li><code>&lt;/script&gt;</code></li>
                         </ol>
                     </dd>
                 </dl>
                 <p class="codedesc">If you have decided to use another font icon system, please specify the new play and pause class names in the
-                   options object.</p>
+                   options object so that the play and pause images can be toggled.</p>
                 <dl class="codelist">
                     <dt>Specifying class names for play and pause icons</dt>
                     <dd>
                         <ol>
                             <li><code>&lt;script&gt;</code></li>
-                            <li><pre><code>$(window).load(function() {</code></pre></li>
-                            <li><pre><code>  $('div.slideshow').slideshow( { playClass: "font-icon-play", pauseClass: "font-icon-pause" });</code></pre></li>
-                            <li><pre><code>});</code></pre></li>
+                            <li><code>window.onload = function() {</code></li>
+                            <li><pre><code>  var sliderContainer = document.getElementsByClassName('rhythnic-slider')[0];</code></pre></li>
+                            <li><pre><code>  var slider = new Object(RhythnicImageSlider);</code></pre></li>
+                            <li><pre><code>  slider.init(sliderContainer, { playClass: fa-play, pauseClass: fa-pause });</code></pre></li>
+                            <li><code>};</code></li>
                             <li><code>&lt;/script&gt;</code></li>
                         </ol>
                     </dd>
@@ -310,20 +305,21 @@
             </section>
         </div></section>
         <section><div class="container">
-            <h3>Rhythnic Image Slideshow is Open Source</h3>
-            <p>The origins of this humble little slideshow are from the Tuts Premium course,
+            <h3>Rhythnic Image Slider is Open Source</h3>
+            <p>The origins of this humble little slider are from the Tuts Premium course,
                 <a href="http://tutsplus.com/course/30-days-to-learn-jquery/">30 Days to Learn jQuery</a>.
                 The course is free at the time I'm writing this, and it really taught me a lot about jQuery
-                and about how to organize javascript code using dictionaries.  I highly recommend it.
+                and object literal notation for organizing javascript code.  I highly recommend it.
             </p>
-            <p>This plugin is open source and there is a public repository for it on Bitbucket called
-                <a href="http://bitbucket.org/rhythnic/image-slideshow">rhythnic/image-slideshow</a>.  I will continue to develop it here and there in the future as time allows,
-                but anyone is able to fork the git project and continue development.  There are many image slideshow plugins around,
-                but I chose to create one more for the purpose of understanding the process of making a plugin.
+            <p>This javascript component is open source and there is a public repository for it on Bitbucket called
+                <a href="http://bitbucket.org/rhythnic/image-slider">rhythnic/image-slider</a>.  I will continue to develop it here and there in the future as time allows,
+                but anyone is able to fork the git project and continue development.  There are many image slider plugins around,
+                but I chose to create one more for the purpose of understanding how to do it.  I also like having a slider plugin that doesn't use jQuery,
+                in case I don't need jQuery elsewhere on a site.
             </p>
         </div></section>
         <footer><div class="container">
-            <p>The Rhythnic Image Slideshow jQuery Plugin is released under the MIT License for open source software.  Anyone
+            <p>The Rhythnic Image Slider is released under the MIT License for open source software.  Anyone
                may download it for free, change it at will, and use it for commercial purposes.</p>
             <p><script>
                 var username = "nick", hostname = "rhythnic.com", linktext = username + "@" + hostname;
@@ -333,10 +329,10 @@
         </div></footer>
     </article>
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"><\/script>')</script>
-    <script>Modernizr.touch && document.write('<script src="js/jquery.touchSwipe.min.js"><\/script>')</script>
-    <script src="js/slideshow.min.js"></script>
-    <script> $(window).load(function() { $('div.slideshow').slideshow( { play: false } ); }); </script>
+    <script src="js/rhythnic-slider.js"></script>
+    <script> window.onload = function() {
+        var slider = new Object(RhythnicImageSlider);
+        slider.init(document.getElementsByClassName('rhythnic-slider')[0]);
+    }; </script>
 </body>
 </html>
