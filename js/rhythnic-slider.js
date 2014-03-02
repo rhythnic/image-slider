@@ -27,15 +27,17 @@ var RhythnicImageSlider = {
         
         this.options = options || {};
         this.overrideOptions(this.defaultOptions, this.options);
-        
-        /* this.hover = new RegExp("(?:^|\\s)" + this.options.hoverClass + "(?!\\S)", "g"); */
-        
+                
         //pointerID (key) and starting x coordinate (value)
         this.pointers = {};
         
         this.bindEvents();
         
-        if (this.options.play) { this.toggleplay(this.options.timer); }  //toggle play on if play is set to true in options
+        //toggle play on if play is set to true in options
+        if (this.options.play) {
+            this.options.play = false;
+            this.togglePlay(this.options.timer);
+        }  
     },
     
     bindEvents : function() {
@@ -44,9 +46,12 @@ var RhythnicImageSlider = {
         
         window.addEventListener(orientationEvent,      function(e) { self.onOrientationEvent(); });
         this.nav.addEventListener('click',             function(e) { self.onClickNav(e); });
-        this.ul.addEventListener('pointerdown', function(e) { self.onPointerdown(e); });
-        this.ul.addEventListener('pointerup',   function(e) { self.onPointerup(e); });
-        this.ul.addEventListener('pointermove', function(e) { self.onPointermove(e); });
+        this.ul.addEventListener('touchstart',         function(e) { self.onPointerdown(e); });
+        this.ul.addEventListener('touchend',           function(e) { self.onPointerup(e); });
+        this.ul.addEventListener('touchleave',           function(e) { self.onPointerup(e); });
+        this.ul.addEventListener('touchcancel',           function(e) { self.onPointerup(e); });
+        this.ul.addEventListener('touchmove',          function(e) { self.onPointermove(e); });
+        this.container.addEventListener('keydown',     function(e) { self.onKeydown(e); });
     },
     
     
@@ -54,31 +59,43 @@ var RhythnicImageSlider = {
     ********** Event Handlers ************
     */
     
+    onKeydown : function(e) {
+        switch(e.keyCode){
+            case 32: e.preventDefault(); this.togglePlay(1); break;
+            case 37: e.preventDefault(); this.setCurrent('prev'); this.transition(); break;
+            case 39: e.preventDefault(); this.setCurrent('next'); this.transition(); break;
+        }
+    },
+    
     onPointerdown : function(event) {
-        this.pointers[event.pointerId] = event.clientX;
+        event.preventDefault();
+        var touchObj = event.changedTouches[0];
+        this.pointers[touchObj.identifier] = [touchObj.pageX, touchObj.pageY];
     },
     
     onPointerup : function(event) {
-        delete this.pointers[event.pointerId];
+        delete this.pointers[event.changedTouches[0].identifier];
     },
     
     onPointermove : function(event) {
-        var x = this.pointers[event.pointerId];
-        if (!x) return;
-        
-        var diff = event.clientX - x;
+        var touchObj = event.changedTouches[0];
+        if (! (touchObj.identifier in this.pointers)) return;
+        var xy = this.pointers[touchObj.identifier];
+        event.preventDefault();
+        window.scrollBy(0, xy[1] - touchObj.pageY);
+        xy[1] = touchObj.pageY; 
+        var diff = touchObj.pageX - xy[0];
         if (Math.abs(diff) >= this.options.threshold) {
             var dir = (diff <= 0) ? 'next' : 'prev';
             this.setCurrent(dir);
             this.transition();
-            delete this.pointers[event.pointerId];
+            delete this.pointers[touchObj.identifier];
         } 
     },
     
     onClickNav : function(event) {
         if (event.target.className.indexOf('play') !== -1) {
-            this.options.play = !this.options.play;
-            this.toggleplay(1);
+            this.togglePlay(1);
         } else if (event.target.className.indexOf('skip') !== -1) {
             this.setCurrent(event.target.dataset.dir);
             this.transition();
@@ -91,34 +108,23 @@ var RhythnicImageSlider = {
         this.imgs.forEach(function(img){ img.style.width = width + "px"; });
     },
     
-    /*
-    onPointerover : function() {
-        if (!this.hover.test(this.container.className))
-            this.container.className += ' ' + this.options.hoverClass;
-    },
-    
-    onPointerout : function() {
-        if (this.hover.test(this.container.className))
-            this.container.className = this.container.className.replace(this.hover , '' );
-    },
-    */
-    
     /**** end of event handlers ****/
     
     //toggle autoplay, swap icons
-    toggleplay: function (length) {
+    togglePlay: function (length) {
+        this.options.play = !this.options.play;
         clearTimeout(this.timeout);
         
         if (this.options.play) {
-            this.autoplay(length);
+            this.autoPlay(length);
             this.play.className = this.play.className.replace(this.options.playClass, this.options.pauseClass);
         } else {
             this.play.className = this.play.className.replace(this.options.pauseClass, this.options.playClass);
         }
     },
     
-    //autoplay
-    autoplay: function (length) {
+    //autoPlay
+    autoPlay: function (length) {
         var self = this;
         
         self.timeout = setTimeout(function () {
@@ -126,7 +132,7 @@ var RhythnicImageSlider = {
             self.transition();
             
             if (self.options.play) {
-                self.autoplay();
+                self.autoPlay();
             }
         }, length || self.options.timer);
     },

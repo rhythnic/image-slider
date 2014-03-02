@@ -35,24 +35,13 @@
     padding: 0.3em 0.4em;
 }
 
-.swipe-msg {
-    top: 0;
-    left: 50%;
-    width: 7em;
-    margin-left: -5em;
-    border-radius: 2em;
-    text-align: center;
-}
-
-.no-touch .swipe-msg, .rhythnic-slider:hover .swipe-msg { display: none; }
-
 .rhythnic-slider ul {
     list-style: none;
     width: 10000px;
     margin: 0;
     padding: 0;
-    -webkit-transition: margin-left 1s, -webkit-transform 1s;
-    transition: margin-left 1s, transform 1s;
+    -webkit-transition: margin-left .6s, -webkit-transform .6s;
+    transition: margin-left .6s, transform .6s;
 }
 
 .rhythnic-slider li {
@@ -60,17 +49,13 @@
     position: relative;
 }
 
-/* captions and swipe-msg */
+/* captions */
 .rhythnic-slider p {
     font-size: 0.8em;
     position: absolute;
     background: rgba(20, 20, 20, 0.7);
     color: #fff;
     padding: 1em 1.5em;
-}
-
-/* captions */
-.rhythnic-slider li p {
     bottom: 0; 
     margin: 0;
     line-height: 1.3em;

@@ -80,7 +80,7 @@ article footer p { color: #000; }
 article footer p:last-child { text-align: center; }
 
 
-/* container for header and slideshow demo */
+/* container for header and slider demo */
 .title-and-demo {
     background: #00aa72;
     padding-top: 1px;
@@ -92,7 +92,7 @@ article footer p:last-child { text-align: center; }
 .demo { padding: 0; margin: 0; }
 .demo h3 { display: none; }
 
-.slideshow {
+.rhythnic-slider {
     width: 100%;
     font-size: 120%;
 }
@@ -139,7 +139,7 @@ code {
 @media (min-width: 40em) {
     body { font-size: 100%; }
     
-    .slideshow {
+    .rhythnic-slider {
         width: 600px;
         font-size: 100%;
         margin: 0 auto;

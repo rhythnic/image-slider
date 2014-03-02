@@ -9,8 +9,7 @@
     <link href="css/rhythnic-slider.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <script src="js/modernizr.custom.78546.js"></script>
-    <script src="js/hand-1.3.5.js"></script>
-    <script language="javascript"> HANDJS.doNotProcessCSS = true;</script>
+    
 </head>
 <body>
     <h1>Rhythnic Image Slider javascript component</h1>
@@ -20,7 +19,7 @@
                 <h2><span class="logoFont">Rhythnic</span> Image Slider with swipe for touch screens</h2>
             </header><section class="demo">
                 <h3>Image slider demonstration</h3>
-                <div class="rhythnic-slider">
+                <div class="rhythnic-slider" tabindex="0">
                     <ul>
                         <li><img src="img/colored-orb-lights.jpg" alt="Colored orb lights">
                         <p>Colored orb lights.  Aren't they so pretty?</p>
@@ -35,7 +34,6 @@
                         <i class="play fa fa-play"></i>
                         <i data-dir="next" class="skip fa fa-chevron-right"></i>
                     </div>
-                    <p class="swipe-msg"><i class="fa fa-long-arrow-left"></i> swipe <i class="fa fa-long-arrow-right"></i></p>
                 </div>
             </section>
         </div></div>
@@ -44,9 +42,8 @@
             <p>The Rhythnic Image Slider is a javascript component for converting image lists into slideshows.  It doesn't rely on jQuery,
                 so it's smaller and requires less bandwidth than many other image sliders.
                 Users of touch screens can navigate the slideshow by swiping left or right.  Desktop users will see the navigation icons
-                appear when their mouse hovers over the image.  The plugin is dependent upon hand.js for enabling pointer events.
-                Once browsers start to support pointer events, hand.js can be removed.  We're also depending on Modernizr's detection of
-                touch events to customize the look. Setting up the Rhythnic Image Slider does require a little knowledge of HTML and CSS.
+                appear when their mouse hovers over the image.  This slider depends on Modernizr's detection of touch events to customize the look.
+                Setting up the Rhythnic Image Slider does require a little knowledge of HTML and CSS.
             </p>
         </div></section>
         <section><div class="container">
@@ -96,13 +93,14 @@
                 <p class="codedesc">Let's look at our list of images next.  The slider works by manipulating a list on your site.
                     Include the list inside of a div with a class of rhythnic-slider and place that div on your page whereever you want the slider
                     to be.  Rhytnic's slider is made for use with images, but you could tweak it for other purposes.  Any number of images is fine,
-                    but they should be the same size.
+                    but they should be the same size.  Set the tabindex to 0 so that the slider can be selected via the tab button.  If the slider
+                    has focus, you can use the space bar, left and right arrow keys to play and navigate the slideshow.
                 </p>
                 <dl class="codelist">
                     <dt>A list of images inside of a div with a class of rhythnic-slider</dt>
                     <dd>
                         <ol>
-                            <li><code>&lt;div class="rhythnic-slider"&gt;</code></li>
+                            <li><code>&lt;div class="rhythnic-slider" tabindex="0"&gt;</code></li>
                             <li><pre><code>  &lt;ul&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image1.jpg" alt="Description of image one"&gt;&lt;/li&gt;</code></pre></li>
                             <li><pre><code>    &lt;li&gt;&lt;img src="/img/image2.jpg" alt="Description of image two"&gt;&lt;/li&gt;</code></pre></li>
@@ -155,17 +153,6 @@
                     better in the options section below.  Beginning developers will also benifit from the simplicity of linking
                     to Font Awesome in the head.
                 </p>
-                <p class="codedesc">Under the navigation, include a message that tells touch screen users to swipe.</p>
-                <dl class="codelist">
-                    <dt>Swipe message</dt>
-                    <dd>
-                        <ol>
-                            <li><code>&lt;p class="swipe-msg"&gt;&lt;i class="fa fa-long-arrow-left"&gt;&lt;/i&gt;&lt;/p&gt;</code></li>
-                            <li><pre><code>  swipe &lt;i class="fa fa-long-arrow-right"&gt;&lt;/i&gt;</code></pre></li>
-                            <li><code>&lt;/p&gt;</code></li>
-                        </ol>
-                    </dd>
-                </dl>
                 <p class="codedesc">The final, complete slider div should look something like this.</p>
                 <dl class="codelist">
                     <dt>The complete slider div</dt>
@@ -183,7 +170,6 @@
                             <li><pre><code>    &lt;i class="play fa fa-play"&gt;&lt;/i&gt;</code></pre></li>
                             <li><pre><code>    &lt;i data-dir="next" class="skip fa fa-chevron-right"&gt;&lt;/i&gt;</code></pre></li>
                             <li><pre><code>  &lt;/div&gt;</code></pre></li>
-                            <li><pre><code>  &lt;p class="swipe-msg"&gt;&lt;i class="fa fa-long-arrow-left"&gt;&lt;/i&gt; swipe &lt;i class="fa fa-long-arrow-right"&gt;&lt;/i&gt;&lt;/p&gt;</code></pre></li>
                             <li><code>&lt;/div&gt;</code></li>
                         </ol>
                     </dd>
@@ -329,10 +315,13 @@
         </div></footer>
     </article>
     
-    <script src="js/rhythnic-slider.js"></script>
-    <script> window.onload = function() {
-        var slider = new Object(RhythnicImageSlider);
-        slider.init(document.getElementsByClassName('rhythnic-slider')[0]);
-    }; </script>
+    <script src="js/rhythnic-slider.min.js"></script>
+    
+    <script>
+        window.onload = function() {
+            var slider = new Object(RhythnicImageSlider);
+            slider.init(document.getElementsByClassName('rhythnic-slider')[0]);
+        };
+    </script>
 </body>
 </html>
