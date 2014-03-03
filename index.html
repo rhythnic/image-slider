@@ -40,7 +40,7 @@
         <section><div class="container">
             <h3>About Rhythnic Image Slider</h3>
             <p>The Rhythnic Image Slider is a javascript component for converting image lists into slideshows.  It doesn't rely on jQuery,
-                so it's smaller and requires less bandwidth than many other image sliders.
+                so it will use less bandwidth than if it did.
                 Users of touch screens can navigate the slideshow by swiping left or right.  Desktop users will see the navigation icons
                 appear when their mouse hovers over the image.  This slider depends on Modernizr's detection of touch events to customize the look.
                 Setting up the Rhythnic Image Slider does require a little knowledge of HTML and CSS.
@@ -91,7 +91,7 @@
                     </dd>
                 </dl>
                 <p class="codedesc">Let's look at our list of images next.  The slider works by manipulating a list on your site.
-                    Include the list inside of a div with a class of rhythnic-slider and place that div on your page whereever you want the slider
+                    Include the list inside of a div with a class of rhythnic-slider and place that div on your page wherever you want the slider
                     to be.  Rhytnic's slider is made for use with images, but you could tweak it for other purposes.  Any number of images is fine,
                     but they should be the same size.  Set the tabindex to 0 so that the slider can be selected via the tab button.  If the slider
                     has focus, you can use the space bar, left and right arrow keys to play and navigate the slideshow.
@@ -147,9 +147,9 @@
                     by linking to it in the head section for a few reasons, even though we're downloading more than is necessary.
                     The first reason is that it keeps the slider package simple.
                     Also, the less I integrate the font icon system, the easier it is for developers to integrate the slider plugin
-                    with the other font icons on their site, whether they are using Font Awesome or another font icon system.
-                    You're welcome to use another font icon system, but you have to change the class names to match whatever you decide to use.
-                    You'll also need to specify the new class names in the options object when you create the jQuery object.  This is explained
+                    with the other font icons on their site, whether they are using Font Awesome or another icon font system.
+                    You're welcome to use another icon font system, but you have to change the class names to match whatever you decide to use.
+                    You'll also need to specify the new class names in the options object when you create the slider object.  This is explained
                     better in the options section below.  Beginning developers will also benifit from the simplicity of linking
                     to Font Awesome in the head.
                 </p>
@@ -193,8 +193,7 @@
                     </dd>
                 </dl>
                 <p>Each image will automatically fit the width of the container, even as you change the size of the container (assuming js is enabled).
-                   For the best presentation, please make all of the images files the same width and height.  If your using images with different sizes,
-                   consider specifying the height of the slider container so that it stays consistent.
+                   For the best presentation, please make all of the images files the same width and height.
                    In the absence of javascript, the slider is a horizontal scrolling list of images.
                    In this instance, the images don't take the width of the slider container.  They are just their natural
                    size.  If you'd like to alter their size in the event that there is no javascript, please add a css rule.
